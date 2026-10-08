@@ -14,6 +14,8 @@
 * **Desktop Clock:** Full-screen clock face featuring current date and weather, ideal for a nightstand or desk setup.
 * **Notes & To-Do List:** Interactive task list with sticky-note export and checkbox rendering.
 * **Canvas & Image Viewer:** Freehand drawing canvas, image slideshow, and Floyd-Steinberg dithering for crisp grayscale reproduction on E-Ink.
+* **Wireless Book Sync & Universal Converter:** Inspects books stored on the Kindle (over Wi-Fi or USB), with search and deletion capabilities. Accepts any book format (.epub, .fb2, .docx, .txt, .pdf), automatically converts via Calibre into Kindle-compatible formats (.mobi, .azw3), and deploys wirelessly with automatic Kindle library re-indexing.
+* **Embedded HTTP Book Server:** Runs a local web server hosting your book catalog. Enables one-click wireless book downloads via the Kindle's built-in Experimental Web Browser, as well as remote book uploads from smartphones to Kindle over the local Wi-Fi network.
 * **Firmware & AI Installer:** Automatically detects USB-connected Kindle storage and deploys AI chat binaries, scripts, and KUAL extensions in one click.
 
 ---
@@ -152,6 +154,8 @@ Create `config.json` using `config.example.json` as a reference:
 ├── ai_deploy/                 # Deployment bundle for Kindle (ai and extensions folders)
 │   ├── ai/                    # Native binary, launcher script, and curl worker
 │   └── extensions/ai_chat/    # KUAL extension configuration and launch menu
+├── kindle_books.py            # Wireless book sync, universal converter, and HTTP server module
+├── library/                   # Local book server library repository
 ├── kindle_display.py          # Graphics processing and E-Ink display driver module
 ├── kindle_stream.py           # PC screen capture and low-latency streaming
 ├── kindle_pic.py              # Image processing and Floyd-Steinberg dithering

@@ -28,8 +28,14 @@ fix_menus.py
 .DS_Store
 Thumbs.db
 
-# Large generated media
+# Large generated media & Books
 *.epub
+*.mobi
+*.azw
+*.azw3
+*.fb2
+library/*
+!library/.gitkeep
 *.pickle/
 *.png
 *.jpg
