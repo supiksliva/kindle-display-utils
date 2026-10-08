@@ -1,3 +1,5 @@
+[English](README_EN.md) | [Русский](README.md)
+
 # Kindle Studio & Native AI Chat
 
 > Превратите ваш Amazon Kindle (Kindle Keyboard 3, 4, 5, Paperwhite) в E-Ink монитор, настольные часы, системный дашборд и автономный терминал ИИ-помощника с русской слепой печатью.
@@ -154,7 +156,8 @@ python kindle_studio.py
 ├── kindle_stream.py           # Захват и непрерывный стриминг экрана ПК
 ├── kindle_pic.py              # Обработка изображений и алгоритм дизеринга
 ├── config.example.json        # Пример конфигурационного файла
-└── README.md                  # Документация проекта
+├── README.md                  # Документация проекта (на русском языке)
+└── README_EN.md               # Документация проекта (на английском языке)
 ```
 
 ---
