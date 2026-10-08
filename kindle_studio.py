@@ -45,6 +45,16 @@ WEEKDAYS_RU = [
     "ПОНЕДЕЛЬНИК", "ВТОРНИК", "СРЕДА", "ЧЕТВЕРГ", "ПЯТНИЦА", "СУББОТА", "ВОСКРЕСЕНЬЕ"
 ]
 
+MONTH_NAMES_EN = [
+    "", "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+]
+WEEKDAYS_EN = [
+    "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"
+]
+CAL_HEADERS_EN = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+CAL_HEADERS_RU = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+
 I18N = {
     "ru": {
         "title": "Kindle Studio 2.0 - Стриминг, Монитор, Часы и Книги",
@@ -62,6 +72,101 @@ I18N = {
         "btn_shortcut": "📌 Ярлык на Рабочий стол",
         "btn_lang": "🌐 English",
         "ready": "Готов к работе",
+        "ping_checking": "● Проверка...",
+        "ping_online": "🟢 В сети ({latency} мс)",
+        "ping_offline": "🔴 Офлайн / Wi-Fi?",
+        "status_sending": "Отправка на Kindle...",
+        "status_sent_ok": "✓ Успешно отображено на экране Kindle",
+        "status_clearing": "Очистка экрана...",
+        "status_cleared": "Экран Kindle очищен",
+        "status_shortcut_ok": "✓ Ярлык создан на Рабочем столе",
+        "status_colors_inverted": "Цвета инвертированы",
+        "status_canvas_cleared": "Холст очищен",
+        "status_saved_png": "Сохранено в {filename}",
+        "status_loaded_img": "Загружено: {filename}",
+        "status_dash_rendered": "Дашборд ПК сформирован",
+        "status_clock_rendered": "Часы и календарь сформированы (Погода: {temp})",
+        "status_todo_rendered": "Стикер заметок сформирован",
+        "status_stream_stopped": "Трансляция остановлена",
+        "status_dash_stopped": "Мониторинг ПК остановлен",
+        "status_clock_stopped": "Режим часов остановлен",
+        "status_ai_installed": "AI Chat установлен на Kindle",
+        "status_snip_loaded": "Выделенная область загружена на холст",
+        "status_screen_loaded": "Снимок экрана ПК загружен на холст",
+
+        # Preview Panel
+        "preview_header": "Ориентация экрана:",
+        "rot_left": "⟲ 90° Влево",
+        "rot_right": "⟳ 90° Вправо",
+        "rot_0": "0° Портрет",
+        "rot_90": "90° Альбом ⟳",
+        "rot_180": "180°",
+        "rot_270": "270° Альбом ⟲",
+        "res_portrait": "Размер: 600×800 • Портрет",
+        "res_landscape": "Размер: 800×600 • Альбом",
+        "btn_invert": "🌓 Инвертировать",
+        "btn_clear_canvas": "🗑 Очистить холст",
+        "btn_save_png": "💾 Сохранить PNG",
+
+        # Tab 1: Canvas
+        "canvas_header": "KINDLE GRAPHICS CANVAS  •  ГРАФИЧЕСКИЙ ХОЛСТ",
+        "canvas_tools": "Инструменты рисования:",
+        "tool_pen": "✏ Ручка / Кисть",
+        "tool_eraser": "🧽 Ластик",
+        "tool_text": "🔤 Текст (кликните по холсту для вставки)",
+        "text_insert_label": "Текст для вставки:",
+        "text_default": "Заметка...",
+        "brush_size_label": "Толщина кисти / размер текста:",
+        "img_load_label": "Загрузка картинок:",
+        "btn_load_img": "📂 Загрузить картинку с компьютера...",
+        "cb_dither": "Фото-дизеринг (Floyd-Steinberg для фото)",
+        "slideshow_box": " Слайдшоу из папки ",
+        "btn_choose_folder": "Выбрать папку с фото...",
+        "folder_none": "Папка не выбрана",
+        "btn_prev": "◀ Назад",
+        "btn_next": "Вперед ▶",
+
+        # Tab 2: Stream
+        "stream_header": "LIVE PC SCREEN STREAM  •  ПРЯМАЯ ТРАНСЛЯЦИЯ ЭКРАНА",
+        "stream_title": "Прямая трансляция экрана компьютера:",
+        "stream_tip": "💡 Совет: Для широкоформатных экранов ПК выберите ориентацию '90° Альбом' — тогда рабочий стол поместится на весь экран Киндла без черных полос!",
+        "btn_cap_full": "📸 Снимок всего экрана ПК",
+        "btn_cap_area": "✂ Захват выделенной области экрана",
+        "stream_settings": "Настройки стриминга:",
+        "stream_fps_label": "Частота обновления (FPS):",
+        "btn_stream_start": "▶ Запустить прямую трансляцию",
+        "btn_stream_stop": "⏹ Остановить трансляцию",
+
+        # Tab 3: Dashboard
+        "dash_header": "HARDWARE MONITOR  •  МОНИТОР РЕСУРСОВ ПК",
+        "dash_title": "Монитор ресурсов компьютера в реальном времени:",
+        "dash_desc": "Отображает загрузку процессора, тактовую частоту, оперативную память RAM, остаток диска C: и список самых активных процессов Windows.",
+        "btn_render_dash": "👁 Сформировать дашборд",
+        "dash_auto_title": "Автоматическое обновление на Kindle:",
+        "dash_interval_label": "Интервал обновления (секунд):",
+        "btn_dash_start": "▶ Запустить живой мониторинг ПК",
+        "btn_dash_stop": "⏹ Остановить мониторинг",
+
+        # Tab 4: Clock
+        "clock_header": "DESK CLOCK & WEATHER  •  НАСТОЛЬНЫЕ ЧАСЫ",
+        "clock_title": "Умные настольные E-Ink часы с календарем:",
+        "city_label": "Город для прогноза погоды (wttr.in):",
+        "note_label": "Заметка / напоминание внизу часов:",
+        "note_default": "Продуктивного дня!",
+        "btn_render_clock": "👁 Сформировать часы и календарь",
+        "clock_live_title": "Режим настольных часов (автообновление раз в минуту):",
+        "btn_clock_start": "▶ Запустить живые настольные часы",
+        "btn_clock_stop": "⏹ Остановить настольные часы",
+
+        # Tab 5: To-Do
+        "todo_header": "SMART DESK STICKY NOTE  •  СТИКЕР ЗАДАЧ",
+        "todo_title_label": "Заголовок стикера:",
+        "todo_title_default": "ПЛАНЫ НА СЕГОДНЯ",
+        "todo_items_label": "Список задач ([x] — сделано, [ ] — активно):",
+        "btn_render_todo": "👁 Сформировать стикер задач",
+        "todo_default_items": "[x] Прошить Kindle и поставить KUAL\n[x] Настроить ScreenSavers и большие шрифты\n[ ] Протестировать стриминг экрана\n[ ] Поставить KOReader\n[ ] Закинуть любимые книги\n[ ] Отдохнуть вечером",
+
+        # Tab 6: Books
         "books_header": "KINDLE E-INK BOOKSHELF  •  БЕСПРОВОДНАЯ КНИЖНАЯ ПОЛКА",
         "books_wifi_mode": "📶 Wi-Fi (SSH)",
         "books_usb_mode": "🔌 USB Накопитель",
@@ -88,6 +193,33 @@ I18N = {
         "books_online": "🟢 В сети (Wi-Fi)",
         "books_usb_online": "🔌 Подключен (USB {drive})",
         "books_loading": "● Чтение списка книг...",
+
+        # Tab 7: Jailbreak & AI
+        "jb_header": "KINDLE FIRMWARE & AI DEPLOYER  •  ПРОШИВКА И ИИ",
+        "usb_box_title": " 📱 Подключение Kindle по USB ",
+        "btn_detect_kindle": "🔍 Найти Kindle (USB)",
+        "usb_detect_hint": "Нажмите 'Найти Kindle' для проверки",
+        "usb_found": "✅ Kindle обнаружен: {drive} ({free:.2f} ГБ свободно)",
+        "usb_not_found": "❌ Kindle не обнаружен. Подключите USB кабель",
+        "ai_box_title": " 🤖 Установка AI Chat (GLM-5.3 Flash) в 1 клик ",
+        "ai_key_label": "API Ключ Polza.ai (сохраняется в /mnt/us/ai/config.json):",
+        "btn_install_ai": "📥 Установить AI Chat на Kindle",
+        "guide_box_title": " 📖 Мастер Джейлбрейка & Сторонних Приложений ",
+        "guide_content": (
+            "1. ДЖЕЙЛБРЕЙК KINDLE (K3W / K3G / K4 / K5):\n"
+            "   • Подключите Kindle по USB к компьютеру.\n"
+            "   • Скачайте архив джейлбрейка (MobileRead Kindle Jailbreak).\n"
+            "   • Скопируйте файл update_jailbreak_***_install.bin в корень диска Kindle.\n"
+            "   • Безопасно извлеките Kindle. Нажмите: [Menu] -> Settings -> [Menu] -> Update Your Kindle.\n"
+            "   • Читалка перезагрузится, внизу экрана появится надпись 'Jailbreak succeeded'.\n\n"
+            "2. УСТАНОВКА MKK И KUAL (ЛАУНЧЕР ПРИЛОЖЕНИЙ):\n"
+            "   • Скопируйте файл KUAL-KDK-1.0.azw2 в папку documents/ на Kindle.\n"
+            "   • На главном экране Kindle появится книга 'KUAL' — это меню всех приложений!\n\n"
+            "3. ЗАПУСК AI CHAT:\n"
+            "   • Нажмите кнопку 'Установить AI Chat на Kindle' выше.\n"
+            "   • В KUAL появится пункт 'AI Chat (GLM-5.3)'.\n"
+            "   • Подключитесь к Wi-Fi и общайтесь с ИИ прямо с читалки!"
+        )
     },
     "en": {
         "title": "Kindle Studio 2.0 - Screen Streamer, Monitor, Clock & Books",
@@ -105,6 +237,101 @@ I18N = {
         "btn_shortcut": "📌 Desktop Shortcut",
         "btn_lang": "🌐 Русский",
         "ready": "Ready",
+        "ping_checking": "● Checking...",
+        "ping_online": "🟢 Online ({latency} ms)",
+        "ping_offline": "🔴 Offline / Wi-Fi?",
+        "status_sending": "Sending to Kindle...",
+        "status_sent_ok": "✓ Successfully displayed on Kindle screen",
+        "status_clearing": "Clearing screen...",
+        "status_cleared": "Kindle screen cleared",
+        "status_shortcut_ok": "✓ Desktop shortcut created",
+        "status_colors_inverted": "Colors inverted",
+        "status_canvas_cleared": "Canvas cleared",
+        "status_saved_png": "Saved to {filename}",
+        "status_loaded_img": "Loaded: {filename}",
+        "status_dash_rendered": "PC Hardware Dashboard generated",
+        "status_clock_rendered": "Clock & calendar generated (Weather: {temp})",
+        "status_todo_rendered": "Task sticky note generated",
+        "status_stream_stopped": "Streaming stopped",
+        "status_dash_stopped": "PC monitoring stopped",
+        "status_clock_stopped": "Desk clock mode stopped",
+        "status_ai_installed": "AI Chat installed on Kindle",
+        "status_snip_loaded": "Captured area loaded onto canvas",
+        "status_screen_loaded": "Full screen screenshot loaded onto canvas",
+
+        # Preview Panel
+        "preview_header": "Screen Orientation:",
+        "rot_left": "⟲ 90° Left",
+        "rot_right": "⟳ 90° Right",
+        "rot_0": "0° Portrait",
+        "rot_90": "90° Landscape ⟳",
+        "rot_180": "180°",
+        "rot_270": "270° Landscape ⟲",
+        "res_portrait": "Size: 600×800 • Portrait",
+        "res_landscape": "Size: 800×600 • Landscape",
+        "btn_invert": "🌓 Invert Colors",
+        "btn_clear_canvas": "🗑 Clear Canvas",
+        "btn_save_png": "💾 Save PNG",
+
+        # Tab 1: Canvas
+        "canvas_header": "KINDLE GRAPHICS CANVAS  •  DRAWING & PHOTO STUDIO",
+        "canvas_tools": "Drawing Tools:",
+        "tool_pen": "✏ Pen / Brush",
+        "tool_eraser": "🧽 Eraser",
+        "tool_text": "🔤 Text (click on canvas to insert)",
+        "text_insert_label": "Text to insert:",
+        "text_default": "Note...",
+        "brush_size_label": "Brush thickness / Text size:",
+        "img_load_label": "Image Loading:",
+        "btn_load_img": "📂 Open image from PC...",
+        "cb_dither": "Photo dithering (Floyd-Steinberg for photos)",
+        "slideshow_box": " Slideshow from folder ",
+        "btn_choose_folder": "Choose folder with photos...",
+        "folder_none": "No folder selected",
+        "btn_prev": "◀ Prev",
+        "btn_next": "Next ▶",
+
+        # Tab 2: Stream
+        "stream_header": "LIVE PC SCREEN STREAM  •  MONITOR STREAMING",
+        "stream_title": "Live PC screen stream to Kindle:",
+        "stream_tip": "💡 Tip: For PC displays choose '90° Landscape' orientation — desktop will fit the full Kindle screen without black bars!",
+        "btn_cap_full": "📸 Full Screen Snapshot",
+        "btn_cap_area": "✂ Capture Selected Screen Area",
+        "stream_settings": "Streaming settings:",
+        "stream_fps_label": "Refresh rate (FPS):",
+        "btn_stream_start": "▶ Start Screen Stream",
+        "btn_stream_stop": "⏹ Stop Screen Stream",
+
+        # Tab 3: Dashboard
+        "dash_header": "HARDWARE MONITOR  •  PC RESOURCE DASHBOARD",
+        "dash_title": "Real-time PC Hardware Monitor:",
+        "dash_desc": "Displays CPU utilization, clock frequency, RAM usage, free space on C: drive, and top resource-consuming Windows processes.",
+        "btn_render_dash": "👁 Generate Dashboard",
+        "dash_auto_title": "Auto-update on Kindle:",
+        "dash_interval_label": "Update interval (seconds):",
+        "btn_dash_start": "▶ Start Live Monitor",
+        "btn_dash_stop": "⏹ Stop Live Monitor",
+
+        # Tab 4: Clock
+        "clock_header": "DESK CLOCK & WEATHER  •  SMART CALENDAR",
+        "clock_title": "Smart Desk E-Ink Clock with Calendar:",
+        "city_label": "City for weather forecast (wttr.in):",
+        "note_label": "Note / reminder at bottom of clock:",
+        "note_default": "Have a productive day!",
+        "btn_render_clock": "👁 Generate Clock & Calendar",
+        "clock_live_title": "Desk clock mode (auto-refresh once a minute):",
+        "btn_clock_start": "▶ Start Live Desk Clock",
+        "btn_clock_stop": "⏹ Stop Live Desk Clock",
+
+        # Tab 5: To-Do
+        "todo_header": "SMART DESK STICKY NOTE  •  E-INK TO-DO",
+        "todo_title_label": "Sticky Note Title:",
+        "todo_title_default": "TODAY'S TO-DO LIST",
+        "todo_items_label": "Task list ([x] for completed, [ ] for active):",
+        "btn_render_todo": "👁 Generate Task Sticky Note",
+        "todo_default_items": "[x] Jailbreak Kindle & install KUAL\n[x] Setup custom ScreenSavers & large fonts\n[ ] Test PC screen streaming\n[ ] Install KOReader\n[ ] Upload favorite books over Wi-Fi\n[ ] Relax in the evening",
+
+        # Tab 6: Books
         "books_header": "KINDLE E-INK BOOKSHELF  •  WIRELESS BOOK MANAGER",
         "books_wifi_mode": "📶 Wi-Fi (SSH)",
         "books_usb_mode": "🔌 USB Storage",
@@ -131,6 +358,33 @@ I18N = {
         "books_online": "🟢 Online (Wi-Fi)",
         "books_usb_online": "🔌 Connected (USB {drive})",
         "books_loading": "● Loading book list...",
+
+        # Tab 7: Jailbreak & AI
+        "jb_header": "KINDLE FIRMWARE & AI DEPLOYER  •  HACKS & AI",
+        "usb_box_title": " 📱 Kindle USB Connection ",
+        "btn_detect_kindle": "🔍 Detect Kindle (USB)",
+        "usb_detect_hint": "Click 'Detect Kindle' to check connection",
+        "usb_found": "✅ Kindle detected: {drive} ({free:.2f} GB free)",
+        "usb_not_found": "❌ Kindle not detected. Connect USB cable",
+        "ai_box_title": " 🤖 1-Click AI Chat (GLM-5.3 Flash) Installer ",
+        "ai_key_label": "Polza.ai API Key (saved to /mnt/us/ai/config.json):",
+        "btn_install_ai": "📥 Install AI Chat on Kindle",
+        "guide_box_title": " 📖 Jailbreak & Custom Apps Guide ",
+        "guide_content": (
+            "1. KINDLE JAILBREAK (K3W / K3G / K4 / K5):\n"
+            "   • Connect Kindle via USB to your computer.\n"
+            "   • Download the jailbreak archive (MobileRead Kindle Jailbreak).\n"
+            "   • Copy update_jailbreak_***_install.bin to Kindle root drive.\n"
+            "   • Safely eject Kindle. Go to: [Menu] -> Settings -> [Menu] -> Update Your Kindle.\n"
+            "   • Kindle will restart, showing 'Jailbreak succeeded' at screen bottom.\n\n"
+            "2. INSTALL MKK & KUAL (APP LAUNCHER):\n"
+            "   • Copy KUAL-KDK-1.0.azw2 into the documents/ folder on Kindle.\n"
+            "   • You will see 'KUAL' book on Home screen — this is the app launcher!\n\n"
+            "3. LAUNCH AI CHAT:\n"
+            "   • Click 'Install AI Chat on Kindle' button above.\n"
+            "   • Open KUAL -> AI Chat (GLM-5.3).\n"
+            "   • Connect to Wi-Fi and chat with AI directly on your e-reader!"
+        )
     }
 }
 
@@ -282,7 +536,7 @@ def fetch_weather(city=DEFAULT_CITY):
 # ==============================================================================
 # DASHBOARD GENERATOR
 # ==============================================================================
-def generate_pc_dashboard(w=X_RES, h=Y_RES, landscape=False):
+def generate_pc_dashboard(w=X_RES, h=Y_RES, landscape=False, lang="ru"):
     width, height = (h, w) if landscape else (w, h)
     img = Image.new("RGB", (width, height), (255, 255, 255))
     draw = ImageDraw.Draw(img)
@@ -296,7 +550,8 @@ def generate_pc_dashboard(w=X_RES, h=Y_RES, landscape=False):
 
     now_str = datetime.datetime.now().strftime("%H:%M:%S | %d.%m.%Y")
     draw.rectangle([0, 0, width, 50], fill=(0, 0, 0))
-    draw.text((15, 12), "💻 PC HARDWARE MONITOR", fill=(255, 255, 255), font=f_title)
+    title_text = "💻 PC HARDWARE MONITOR" if lang == "en" else "💻 МОНИТОР РЕСУРСОВ ПК"
+    draw.text((15, 12), title_text, fill=(255, 255, 255), font=f_title)
     draw.text((width - 165, 18), now_str, fill=(255, 255, 255), font=f_sub)
 
     cpu_pct = psutil.cpu_percent(interval=None) if psutil else 0
@@ -318,31 +573,39 @@ def generate_pc_dashboard(w=X_RES, h=Y_RES, landscape=False):
     up_h = int(uptime_sec // 3600)
     up_m = int((uptime_sec % 3600) // 60)
 
+    lbl_cpu = "CENTRAL PROCESSOR (CPU)" if lang == "en" else "ЦЕНТРАЛЬНЫЙ ПРОЦЕССОР (CPU)"
+    lbl_ram = "RANDOM ACCESS MEMORY (RAM)" if lang == "en" else "ОПЕРАТИВНАЯ ПАМЯТЬ (RAM)"
+    lbl_disk = "SYSTEM DRIVE (C:)" if lang == "en" else "СИСТЕМНЫЙ ДИСК (C:)"
+    lbl_procs = "TOP PROCESSES BY LOAD" if lang == "en" else "ТОП ПРОЦЕССОВ ПО НАГРУЗКЕ"
+
     if not landscape:
         # Portrait (600x800)
         y = 65
-        draw.text((20, y), "ЦЕНТРАЛЬНЫЙ ПРОЦЕССОР (CPU)", fill=(0, 0, 0), font=f_sec)
+        draw.text((20, y), lbl_cpu, fill=(0, 0, 0), font=f_sec)
         draw.text((width - 85, y), f"{cpu_pct:4.1f}%", fill=(0, 0, 0), font=f_val)
         draw_progress_bar(draw, 20, y + 26, width - 40, 16, cpu_pct)
-        draw.text((20, y + 46), f"Ядер / потоков: {cores}   Частота: {freq_str}   Uptime: {up_h}ч {up_m}м", fill=(70, 70, 70), font=f_body)
+        cpu_sub = f"Cores / Threads: {cores}   Freq: {freq_str}   Uptime: {up_h}h {up_m}m" if lang == "en" else f"Ядер / потоков: {cores}   Частота: {freq_str}   Uptime: {up_h}ч {up_m}м"
+        draw.text((20, y + 46), cpu_sub, fill=(70, 70, 70), font=f_body)
 
         y = 145
-        draw.text((20, y), "ОПЕРАТИВНАЯ ПАМЯТЬ (RAM)", fill=(0, 0, 0), font=f_sec)
+        draw.text((20, y), lbl_ram, fill=(0, 0, 0), font=f_sec)
         draw.text((width - 85, y), f"{mem_pct:4.1f}%", fill=(0, 0, 0), font=f_val)
         draw_progress_bar(draw, 20, y + 26, width - 40, 16, mem_pct)
-        draw.text((20, y + 46), f"Занято: {mem_used:.1f} ГБ из {mem_total:.1f} ГБ   (Свободно: {mem.available/(1024**3):.1f} ГБ)", fill=(70, 70, 70), font=f_body)
+        ram_sub = f"Used: {mem_used:.1f} GB of {mem_total:.1f} GB   (Free: {mem.available/(1024**3):.1f} GB)" if lang == "en" else f"Занято: {mem_used:.1f} ГБ из {mem_total:.1f} ГБ   (Свободно: {mem.available/(1024**3):.1f} ГБ)"
+        draw.text((20, y + 46), ram_sub, fill=(70, 70, 70), font=f_body)
 
         y = 225
-        draw.text((20, y), "СИСТЕМНЫЙ ДИСК (C:)", fill=(0, 0, 0), font=f_sec)
+        draw.text((20, y), lbl_disk, fill=(0, 0, 0), font=f_sec)
         draw.text((width - 85, y), f"{disk_pct:4.1f}%", fill=(0, 0, 0), font=f_val)
         draw_progress_bar(draw, 20, y + 26, width - 40, 16, disk_pct)
-        draw.text((20, y + 46), f"Свободно: {disk_free:.1f} ГБ   (Всего: {disk_total:.1f} ГБ)", fill=(70, 70, 70), font=f_body)
+        disk_sub = f"Free: {disk_free:.1f} GB   (Total: {disk_total:.1f} GB)" if lang == "en" else f"Свободно: {disk_free:.1f} ГБ   (Всего: {disk_total:.1f} ГБ)"
+        draw.text((20, y + 46), disk_sub, fill=(70, 70, 70), font=f_body)
 
         draw.line([20, 310, width - 20, 310], fill=(200, 200, 200), width=2)
 
         # Top processes
         y = 325
-        draw.text((20, y), "ТОП ПРОЦЕССОВ ПО НАГРУЗКЕ", fill=(0, 0, 0), font=f_sec)
+        draw.text((20, y), lbl_procs, fill=(0, 0, 0), font=f_sec)
         procs = []
         if psutil:
             for p in psutil.process_iter(['name', 'cpu_percent', 'memory_percent']):
@@ -356,7 +619,8 @@ def generate_pc_dashboard(w=X_RES, h=Y_RES, landscape=False):
 
         ty = y + 28
         draw.rectangle([20, ty, width - 20, ty + 22], fill=(240, 240, 240))
-        draw.text((25, ty + 3), "ПРОЦЕСС", fill=(50, 50, 50), font=f_sub)
+        proc_hdr = "PROCESS" if lang == "en" else "ПРОЦЕСС"
+        draw.text((25, ty + 3), proc_hdr, fill=(50, 50, 50), font=f_sub)
         draw.text((360, ty + 3), "CPU %", fill=(50, 50, 50), font=f_sub)
         draw.text((470, ty + 3), "RAM %", fill=(50, 50, 50), font=f_sub)
 
@@ -377,32 +641,36 @@ def generate_pc_dashboard(w=X_RES, h=Y_RES, landscape=False):
         # Landscape (800x600)
         col_w = (width - 60) // 2
         y = 65
-        draw.text((20, y), "CPU НАГРУЗКА", fill=(0, 0, 0), font=f_sec)
+        draw.text((20, y), "CPU LOAD" if lang == "en" else "CPU НАГРУЗКА", fill=(0, 0, 0), font=f_sec)
         draw.text((col_w - 45, y), f"{cpu_pct:.1f}%", fill=(0, 0, 0), font=f_val)
         draw_progress_bar(draw, 20, y + 26, col_w, 16, cpu_pct)
-        draw.text((20, y + 46), f"Ядер: {cores}   Частота: {freq_str}", fill=(70, 70, 70), font=f_body)
+        cpu_sub = f"Cores: {cores}   Freq: {freq_str}" if lang == "en" else f"Ядер: {cores}   Частота: {freq_str}"
+        draw.text((20, y + 46), cpu_sub, fill=(70, 70, 70), font=f_body)
 
         y = 145
-        draw.text((20, y), "RAM ПАМЯТЬ", fill=(0, 0, 0), font=f_sec)
+        draw.text((20, y), "RAM MEMORY" if lang == "en" else "RAM ПАМЯТЬ", fill=(0, 0, 0), font=f_sec)
         draw.text((col_w - 45, y), f"{mem_pct:.1f}%", fill=(0, 0, 0), font=f_val)
         draw_progress_bar(draw, 20, y + 26, col_w, 16, mem_pct)
-        draw.text((20, y + 46), f"{mem_used:.1f} ГБ / {mem_total:.1f} ГБ", fill=(70, 70, 70), font=f_body)
+        ram_sub = f"{mem_used:.1f} GB / {mem_total:.1f} GB" if lang == "en" else f"{mem_used:.1f} ГБ / {mem_total:.1f} ГБ"
+        draw.text((20, y + 46), ram_sub, fill=(70, 70, 70), font=f_body)
 
         y = 225
-        draw.text((20, y), "ДИСК (C:)", fill=(0, 0, 0), font=f_sec)
+        draw.text((20, y), "DRIVE (C:)" if lang == "en" else "ДИСК (C:)", fill=(0, 0, 0), font=f_sec)
         draw.text((col_w - 45, y), f"{disk_pct:.1f}%", fill=(0, 0, 0), font=f_val)
         draw_progress_bar(draw, 20, y + 26, col_w, 16, disk_pct)
-        draw.text((20, y + 46), f"Свободно: {disk_free:.1f} ГБ", fill=(70, 70, 70), font=f_body)
+        disk_sub = f"Free: {disk_free:.1f} GB" if lang == "en" else f"Свободно: {disk_free:.1f} ГБ"
+        draw.text((20, y + 46), disk_sub, fill=(70, 70, 70), font=f_body)
 
         y = 310
         draw.rectangle([20, y, 20 + col_w, y + 48], fill=(248, 248, 248), outline=(210, 210, 210))
-        draw.text((30, y + 14), f"Время работы ПК: {up_h} ч {up_m} мин", fill=(0, 0, 0), font=f_sec)
+        up_text = f"PC Uptime: {up_h}h {up_m}m" if lang == "en" else f"Время работы ПК: {up_h} ч {up_m} мин"
+        draw.text((30, y + 14), up_text, fill=(0, 0, 0), font=f_sec)
 
         # Right col
         rx = col_w + 40
         rw = width - rx - 20
         y = 65
-        draw.text((rx, y), "ТОП ПРОЦЕССОВ", fill=(0, 0, 0), font=f_sec)
+        draw.text((rx, y), "TOP PROCESSES" if lang == "en" else "ТОП ПРОЦЕССОВ", fill=(0, 0, 0), font=f_sec)
         
         procs = []
         if psutil:
@@ -417,7 +685,7 @@ def generate_pc_dashboard(w=X_RES, h=Y_RES, landscape=False):
 
         ty = y + 26
         draw.rectangle([rx, ty, rx + rw, ty + 22], fill=(240, 240, 240))
-        draw.text((rx + 5, ty + 3), "ПРОЦЕСС", fill=(50, 50, 50), font=f_sub)
+        draw.text((rx + 5, ty + 3), "PROCESS" if lang == "en" else "ПРОЦЕСС", fill=(50, 50, 50), font=f_sub)
         draw.text((rx + rw - 130, ty + 3), "CPU%", fill=(50, 50, 50), font=f_sub)
         draw.text((rx + rw - 60, ty + 3), "RAM%", fill=(50, 50, 50), font=f_sub)
 
@@ -440,7 +708,7 @@ def generate_pc_dashboard(w=X_RES, h=Y_RES, landscape=False):
 # ==============================================================================
 # CLOCK & CALENDAR GENERATOR
 # ==============================================================================
-def generate_desk_clock(w=X_RES, h=Y_RES, landscape=False, weather_data=None, custom_note=""):
+def generate_desk_clock(w=X_RES, h=Y_RES, landscape=False, weather_data=None, custom_note="", lang="ru"):
     width, height = (h, w) if landscape else (w, h)
     img = Image.new("RGB", (width, height), (255, 255, 255))
     draw = ImageDraw.Draw(img)
@@ -456,8 +724,16 @@ def generate_desk_clock(w=X_RES, h=Y_RES, landscape=False, weather_data=None, cu
     f_sub = get_font(13, bold=False)
 
     now = datetime.datetime.now()
-    weekday_str = WEEKDAYS_RU[now.weekday()]
-    date_str = f"{now.day} {MONTH_GEN_RU[now.month]} {now.year}"
+    if lang == "en":
+        weekday_str = WEEKDAYS_EN[now.weekday()]
+        date_str = f"{MONTH_NAMES_EN[now.month]} {now.day}, {now.year}"
+        month_header = f"{MONTH_NAMES_EN[now.month].upper()} {now.year}"
+        headers = CAL_HEADERS_EN
+    else:
+        weekday_str = WEEKDAYS_RU[now.weekday()]
+        date_str = f"{now.day} {MONTH_GEN_RU[now.month]} {now.year}"
+        month_header = f"{MONTH_NAMES_RU[now.month].upper()} {now.year}"
+        headers = CAL_HEADERS_RU
     time_str = now.strftime("%H:%M")
 
     if not landscape:
@@ -474,11 +750,12 @@ def generate_desk_clock(w=X_RES, h=Y_RES, landscape=False, weather_data=None, cu
         w_y = 250
         draw.rectangle([30, w_y, width - 30, w_y + 105], fill=(248, 248, 248), outline=(200, 200, 200), width=2)
         if not weather_data:
-            weather_data = {"temp": "--°C", "desc": "Ожидание прогноза...", "humidity": "--", "wind": "--", "city": "Кирово-Чепецк"}
+            weather_data = {"temp": "--°C", "desc": "Waiting for weather..." if lang == "en" else "Ожидание прогноза...", "humidity": "--", "wind": "--", "city": "London" if lang == "en" else "Кирово-Чепецк"}
         
         draw.text((50, w_y + 15), weather_data["temp"], fill=(0, 0, 0), font=f_weather_temp)
         draw.text((180, w_y + 18), weather_data["desc"], fill=(0, 0, 0), font=f_weather_desc)
-        draw.text((180, w_y + 45), f"Влажность: {weather_data['humidity']}   Ветер: {weather_data['wind']}", fill=(90, 90, 90), font=f_sub)
+        weather_meta = f"Humidity: {weather_data['humidity']}   Wind: {weather_data['wind']}" if lang == "en" else f"Влажность: {weather_data['humidity']}   Ветер: {weather_data['wind']}"
+        draw.text((180, w_y + 45), weather_meta, fill=(90, 90, 90), font=f_sub)
         draw.text((180, w_y + 68), f"📍 {weather_data['city']}", fill=(110, 110, 110), font=f_sub)
 
         # Calendar Box
@@ -486,11 +763,9 @@ def generate_desk_clock(w=X_RES, h=Y_RES, landscape=False, weather_data=None, cu
         cal_w = width - 60
         draw.rectangle([30, cal_y, width - 30, cal_y + 280], fill=(255, 255, 255), outline=(200, 200, 200), width=2)
         
-        month_header = f"{MONTH_NAMES_RU[now.month].upper()} {now.year}"
         draw.rectangle([30, cal_y, width - 30, cal_y + 40], fill=(240, 240, 240))
         draw.text((width // 2, cal_y + 20), month_header, fill=(0, 0, 0), font=f_cal_head, anchor="mm")
 
-        headers = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
         cell_w = cal_w / 7.0
         grid_top = cal_y + 50
         for i, h_text in enumerate(headers):
@@ -532,10 +807,11 @@ def generate_desk_clock(w=X_RES, h=Y_RES, landscape=False, weather_data=None, cu
         w_y = 260
         draw.rectangle([25, w_y, left_w - 15, w_y + 140], fill=(248, 248, 248), outline=(200, 200, 200), width=2)
         if not weather_data:
-            weather_data = {"temp": "--°C", "desc": "Ожидание прогноза...", "humidity": "--", "wind": "--", "city": "Кирово-Чепецк"}
+            weather_data = {"temp": "--°C", "desc": "Waiting for weather..." if lang == "en" else "Ожидание прогноза...", "humidity": "--", "wind": "--", "city": "London" if lang == "en" else "Кирово-Чепецк"}
         draw.text((45, w_y + 15), weather_data["temp"], fill=(0, 0, 0), font=f_weather_temp)
         draw.text((45, w_y + 65), weather_data["desc"], fill=(0, 0, 0), font=f_weather_desc)
-        draw.text((45, w_y + 92), f"Влажность: {weather_data['humidity']}  •  Ветер: {weather_data['wind']}", fill=(90, 90, 90), font=f_sub)
+        weather_meta = f"Humidity: {weather_data['humidity']}  •  Wind: {weather_data['wind']}" if lang == "en" else f"Влажность: {weather_data['humidity']}  •  Ветер: {weather_data['wind']}"
+        draw.text((45, w_y + 92), weather_meta, fill=(90, 90, 90), font=f_sub)
         draw.text((45, w_y + 115), f"📍 {weather_data['city']}", fill=(110, 110, 110), font=f_sub)
 
         # Right half: Calendar
@@ -544,11 +820,9 @@ def generate_desk_clock(w=X_RES, h=Y_RES, landscape=False, weather_data=None, cu
         cal_y = 20
         draw.rectangle([rx, cal_y, rx + rw, height - 25], fill=(255, 255, 255), outline=(200, 200, 200), width=2)
         
-        month_header = f"{MONTH_NAMES_RU[now.month].upper()} {now.year}"
         draw.rectangle([rx, cal_y, rx + rw, cal_y + 45], fill=(240, 240, 240))
         draw.text((rx + rw // 2, cal_y + 22), month_header, fill=(0, 0, 0), font=f_cal_head, anchor="mm")
 
-        headers = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
         cell_w = rw / 7.0
         grid_top = cal_y + 55
         for i, h_text in enumerate(headers):
@@ -579,7 +853,7 @@ def generate_desk_clock(w=X_RES, h=Y_RES, landscape=False, weather_data=None, cu
 # ==============================================================================
 # TO-DO / STICKY NOTE GENERATOR
 # ==============================================================================
-def generate_todo_note(title="СПИСОК ДЕЛ", text_items="", w=X_RES, h=Y_RES, landscape=False):
+def generate_todo_note(title="СПИСОК ДЕЛ", text_items="", w=X_RES, h=Y_RES, landscape=False, lang="ru"):
     width, height = (h, w) if landscape else (w, h)
     img = Image.new("RGB", (width, height), (255, 255, 255))
     draw = ImageDraw.Draw(img)
@@ -643,9 +917,9 @@ class KindleStudioApp(tk.Tk):
         self.cfg = load_config()
         self.lang = self.cfg.get("lang", "ru")
         self.title(self.tr("title"))
-        self.geometry("1160x780")
-        self.minsize(1040, 700)
-        self.configure(bg="#1e1e1e")
+        self.geometry("1180x800")
+        self.minsize(1060, 720)
+        self.configure(bg="#f5f4ef")
 
         self.rotation = self.cfg.get("rotation", 0) # 0, 90, 180, 270
 
@@ -683,59 +957,59 @@ class KindleStudioApp(tk.Tk):
         self._check_ping_async()
 
     def _build_ui(self):
-        # 1. Top Control Bar
-        top_bar = tk.Frame(self, bg="#252526", pady=8, padx=12)
+        # 1. Top Control Bar (E-Ink Toolbar)
+        top_bar = tk.Frame(self, bg="#eae8e1", pady=10, padx=14, bd=1, relief="solid")
         top_bar.pack(side="top", fill="x")
 
-        self.lbl_ip = tk.Label(top_bar, text=self.tr("ip_label"), fg="#ffffff", bg="#252526", font=("Segoe UI", 9, "bold"))
+        self.lbl_ip = tk.Label(top_bar, text=self.tr("ip_label"), fg="#111111", bg="#eae8e1", font=("Segoe UI", 10, "bold"))
         self.lbl_ip.pack(side="left")
-        self.ip_entry = tk.Entry(top_bar, width=15, font=("Consolas", 10), bg="#333337", fg="#ffffff", insertbackground="white")
+        self.ip_entry = tk.Entry(top_bar, width=15, font=("Consolas", 11, "bold"), bg="#ffffff", fg="#000000", insertbackground="black", bd=1, relief="solid")
         self.ip_entry.insert(0, self.cfg.get("ip", DEFAULT_IP))
-        self.ip_entry.pack(side="left", padx=(5, 10))
+        self.ip_entry.pack(side="left", padx=(5, 12))
 
-        self.btn_ping = tk.Button(top_bar, text=self.tr("btn_ping"), bg="#3a3d41", fg="white", relief="flat", padx=6, command=self.action_ping_kindle)
+        self.btn_ping = tk.Button(top_bar, text=self.tr("btn_ping"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 9, "bold"), padx=10, pady=3, bd=1, command=self.action_ping_kindle)
         self.btn_ping.pack(side="left", padx=3)
 
-        self.ping_status_lbl = tk.Label(top_bar, text="● ...", fg="#aaaaaa", bg="#252526", font=("Segoe UI", 8))
-        self.ping_status_lbl.pack(side="left", padx=(4, 12))
+        self.ping_status_lbl = tk.Label(top_bar, text="● ...", fg="#555555", bg="#eae8e1", font=("Segoe UI", 9, "bold"))
+        self.ping_status_lbl.pack(side="left", padx=(4, 14))
 
-        self.btn_send = tk.Button(top_bar, text=self.tr("btn_send"), bg="#0e639c", fg="white", font=("Segoe UI", 9, "bold"),
-                                  padx=12, pady=3, relief="flat", command=self.action_send_now)
+        self.btn_send = tk.Button(top_bar, text=self.tr("btn_send"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", font=("Segoe UI", 10, "bold"),
+                                  padx=14, pady=3, relief="flat", bd=1, command=self.action_send_now)
         self.btn_send.pack(side="left", padx=4)
 
-        self.btn_clear_screen = tk.Button(top_bar, text=self.tr("btn_clear"), bg="#3a3d41", fg="white", relief="flat",
-                                          padx=8, command=self.action_clear_kindle)
+        self.btn_clear_screen = tk.Button(top_bar, text=self.tr("btn_clear"), bg="#333333", fg="white", activebackground="#444444", activeforeground="white", relief="flat",
+                                          font=("Segoe UI", 9, "bold"), padx=10, pady=3, bd=1, command=self.action_clear_kindle)
         self.btn_clear_screen.pack(side="left", padx=4)
 
-        self.btn_shortcut = tk.Button(top_bar, text=self.tr("btn_shortcut"), bg="#3a3d41", fg="#cccccc", relief="flat",
-                                      font=("Segoe UI", 8), command=self.action_create_desktop_shortcut)
+        self.btn_shortcut = tk.Button(top_bar, text=self.tr("btn_shortcut"), bg="#333333", fg="white", activebackground="#444444", activeforeground="white", relief="flat",
+                                      font=("Segoe UI", 9, "bold"), padx=10, pady=3, bd=1, command=self.action_create_desktop_shortcut)
         self.btn_shortcut.pack(side="left", padx=4)
 
-        self.btn_lang = tk.Button(top_bar, text=self.tr("btn_lang"), bg="#0e639c", fg="#ffffff", relief="flat",
-                                  font=("Segoe UI", 8, "bold"), padx=8, command=self.action_toggle_language)
+        self.btn_lang = tk.Button(top_bar, text=self.tr("btn_lang"), bg="#111111", fg="#ffffff", activebackground="#333333", activeforeground="white", relief="flat",
+                                  font=("Segoe UI", 9, "bold"), padx=10, pady=3, bd=1, command=self.action_toggle_language)
         self.btn_lang.pack(side="left", padx=6)
 
-        self.status_lbl = tk.Label(top_bar, text=self.tr("ready"), fg="#89d185", bg="#252526", font=("Segoe UI", 9))
+        self.status_lbl = tk.Label(top_bar, text=self.tr("ready"), fg="#006400", bg="#eae8e1", font=("Segoe UI", 10, "bold"))
         self.status_lbl.pack(side="right")
 
-        # 2. Main Content (Left: Tabs with controls, Right: Interactive Screen Preview)
-        main_frame = tk.Frame(self, bg="#1e1e1e")
-        main_frame.pack(fill="both", expand=True, padx=10, pady=10)
+        # 2. Main Content Frame
+        main_frame = tk.Frame(self, bg="#f5f4ef")
+        main_frame.pack(fill="both", expand=True, padx=12, pady=12)
 
-        # Style notebook & widgets
+        # Style notebook & widgets for authentic E-Ink look
         style = ttk.Style()
         style.theme_use('default')
-        style.configure("TNotebook", background="#1e1e1e", borderwidth=0)
-        style.configure("TNotebook.Tab", background="#2d2d30", foreground="#cccccc", padding=[10, 5], font=("Segoe UI", 9, "bold"))
-        style.map("TNotebook.Tab", background=[("selected", "#0e639c")], foreground=[("selected", "#ffffff")])
+        style.configure("TNotebook", background="#f5f4ef", borderwidth=0)
+        style.configure("TNotebook.Tab", background="#eae8e1", foreground="#111111", padding=[14, 7], font=("Segoe UI", 10, "bold"), borderwidth=1)
+        style.map("TNotebook.Tab", background=[("selected", "#111111")], foreground=[("selected", "#ffffff")])
 
         # Authentic E-Ink High Contrast Treeview
         style.configure("Treeview", background="#ffffff", foreground="#000000", fieldbackground="#ffffff", rowheight=34, font=("Segoe UI", 11))
         style.configure("Treeview.Heading", background="#222222", foreground="#ffffff", font=("Segoe UI", 11, "bold"), padding=[4, 6])
-        style.map("Treeview", background=[("selected", "#005a9e")], foreground=[("selected", "#ffffff")])
+        style.map("Treeview", background=[("selected", "#111111")], foreground=[("selected", "#ffffff")])
 
         self.notebook = ttk.Notebook(main_frame)
-        self.notebook.pack(side="left", fill="both", expand=True, padx=(0, 10))
+        self.notebook.pack(side="left", fill="both", expand=True, padx=(0, 12))
 
         # Build Tabs
         self._build_tab_canvas()
@@ -746,213 +1020,307 @@ class KindleStudioApp(tk.Tk):
         self._build_tab_books()
         self._build_tab_jailbreak()
 
-        # 3. Right: Screen Preview Panel
-        preview_frame = tk.Frame(main_frame, bg="#252526", padx=12, pady=12)
+        # 3. Right: Screen Preview Panel (E-Ink styled frame)
+        preview_frame = tk.Frame(main_frame, bg="#eae8e1", padx=14, pady=14, bd=2, relief="solid")
         preview_frame.pack(side="right", fill="y")
 
         # Orientation / Rotation Controls Header
-        rot_frame = tk.Frame(preview_frame, bg="#252526")
+        rot_frame = tk.Frame(preview_frame, bg="#eae8e1")
         rot_frame.pack(fill="x", pady=(0, 8))
 
-        tk.Label(rot_frame, text="Ориентация экрана:", fg="#ffffff", bg="#252526", font=("Segoe UI", 9, "bold")).pack(side="left")
+        self.preview_rot_lbl = tk.Label(rot_frame, text=self.tr("preview_header"), fg="#111111", bg="#eae8e1", font=("Segoe UI", 10, "bold"))
+        self.preview_rot_lbl.pack(side="left")
         
-        self.rot_btn_left = tk.Button(rot_frame, text="⟲ 90° Влево", bg="#3a3d41", fg="white", relief="flat", font=("Segoe UI", 8), command=lambda: self.action_rotate(-90))
+        self.rot_btn_left = tk.Button(rot_frame, text=self.tr("rot_left"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 9, "bold"), padx=8, pady=2, bd=1, command=lambda: self.action_rotate(-90))
         self.rot_btn_left.pack(side="right", padx=2)
-        self.rot_btn_right = tk.Button(rot_frame, text="⟳ 90° Вправо", bg="#3a3d41", fg="white", relief="flat", font=("Segoe UI", 8), command=lambda: self.action_rotate(90))
+        self.rot_btn_right = tk.Button(rot_frame, text=self.tr("rot_right"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 9, "bold"), padx=8, pady=2, bd=1, command=lambda: self.action_rotate(90))
         self.rot_btn_right.pack(side="right", padx=2)
 
         # Rotation radio buttons
-        rot_row = tk.Frame(preview_frame, bg="#252526")
+        rot_row = tk.Frame(preview_frame, bg="#eae8e1")
         rot_row.pack(fill="x", pady=(0, 10))
         self.rot_var = tk.IntVar(value=self.rotation)
-        for ang, label in [(0, "0° Портрет"), (90, "90° Альбом ⟳"), (180, "180°"), (270, "270° Альбом ⟲")]:
-            rb = tk.Radiobutton(rot_row, text=label, variable=self.rot_var, value=ang, fg="white", bg="#252526",
-                                selectcolor="#0e639c", activebackground="#252526", font=("Segoe UI", 8),
+        self.rot_rbs = []
+        for ang, label_key in [(0, "rot_0"), (90, "rot_90"), (180, "rot_180"), (270, "rot_270")]:
+            rb = tk.Radiobutton(rot_row, text=self.tr(label_key), variable=self.rot_var, value=ang, fg="#000000", bg="#eae8e1",
+                                selectcolor="#ffffff", activebackground="#eae8e1", font=("Segoe UI", 9, "bold"),
                                 command=self._on_rotation_radio_change)
             rb.pack(side="left", padx=2)
+            self.rot_rbs.append((rb, label_key))
 
-        # Canvas widget
+        # Canvas widget with crisp E-Ink ink border
         self.canvas_preview = tk.Canvas(preview_frame, width=300, height=400, bg="white", cursor="cross",
-                                        highlightthickness=2, highlightbackground="#555555")
+                                        highlightthickness=2, highlightbackground="#111111")
         self.canvas_preview.pack(pady=5)
         self.canvas_preview.bind("<Button-1>", self._canvas_click)
         self.canvas_preview.bind("<B1-Motion>", self._canvas_drag)
         self.canvas_preview.bind("<ButtonRelease-1>", self._canvas_release)
 
         # Resolution indicator
-        self.res_lbl = tk.Label(preview_frame, text="Размер: 600×800 • Портрет", fg="#888888", bg="#252526", font=("Segoe UI", 8))
-        self.res_lbl.pack(pady=(4, 0))
+        self.res_lbl = tk.Label(preview_frame, text=self.tr("res_portrait"), fg="#333333", bg="#eae8e1", font=("Segoe UI", 9, "bold"))
+        self.res_lbl.pack(pady=(6, 0))
 
         # Bottom Quick Actions under preview
-        quick_acts = tk.Frame(preview_frame, bg="#252526")
-        quick_acts.pack(fill="x", pady=(8, 0))
-        tk.Button(quick_acts, text="🌓 Инвертировать", bg="#3a3d41", fg="white", relief="flat", font=("Segoe UI", 8), command=self.action_invert_canvas).pack(side="left", expand=True, fill="x", padx=2)
-        tk.Button(quick_acts, text="🗑 Очистить холст", bg="#3a3d41", fg="white", relief="flat", font=("Segoe UI", 8), command=self.action_clear_canvas).pack(side="left", expand=True, fill="x", padx=2)
-        tk.Button(quick_acts, text="💾 Сохранить PNG", bg="#3a3d41", fg="white", relief="flat", font=("Segoe UI", 8), command=self.action_save_image).pack(side="left", expand=True, fill="x", padx=2)
+        quick_acts = tk.Frame(preview_frame, bg="#eae8e1")
+        quick_acts.pack(fill="x", pady=(10, 0))
+        self.btn_invert = tk.Button(quick_acts, text=self.tr("btn_invert"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 9, "bold"), pady=4, bd=1, command=self.action_invert_canvas)
+        self.btn_invert.pack(side="left", expand=True, fill="x", padx=2)
+        self.btn_clear_canvas = tk.Button(quick_acts, text=self.tr("btn_clear_canvas"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 9, "bold"), pady=4, bd=1, command=self.action_clear_canvas)
+        self.btn_clear_canvas.pack(side="left", expand=True, fill="x", padx=2)
+        self.btn_save_png = tk.Button(quick_acts, text=self.tr("btn_save_png"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 9, "bold"), pady=4, bd=1, command=self.action_save_image)
+        self.btn_save_png.pack(side="left", expand=True, fill="x", padx=2)
 
     # -------------------------------------------------------------------------
-    # TAB: CANVAS & DRAWING
+    # TAB: CANVAS & DRAWING (E-INK STYLE)
     # -------------------------------------------------------------------------
     def _build_tab_canvas(self):
-        tab = tk.Frame(self.notebook, bg="#252526", padx=12, pady=12)
-        self.notebook.add(tab, text="🎨 Холст и Фото")
+        tab = tk.Frame(self.notebook, bg="#f5f4ef", padx=10, pady=10)
+        self.notebook.add(tab, text=self.tr("tab_canvas"))
 
-        tk.Label(tab, text="Инструменты рисования:", fg="#ffffff", bg="#252526", font=("Segoe UI", 9, "bold")).pack(anchor="w", pady=(0, 4))
-        
+        eink_card = tk.Frame(tab, bg="#f5f4ef", bd=2, relief="solid")
+        eink_card.pack(fill="both", expand=True)
+
+        header_bar = tk.Frame(eink_card, bg="#111111", pady=8, padx=14)
+        header_bar.pack(fill="x")
+        self.canvas_header_lbl = tk.Label(header_bar, text=self.tr("canvas_header"), fg="#ffffff", bg="#111111", font=("Segoe UI", 11, "bold"))
+        self.canvas_header_lbl.pack(side="left")
+
+        content = tk.Frame(eink_card, bg="#f5f4ef", padx=14, pady=12)
+        content.pack(fill="both", expand=True)
+
+        # Drawing tools box
+        tools_box = tk.LabelFrame(content, text=f" {self.tr('canvas_tools')} ", fg="#000000", bg="#eae8e1", bd=1, relief="solid", font=("Segoe UI", 10, "bold"), padx=10, pady=8)
+        tools_box.pack(fill="x", pady=(0, 10))
+        self.canvas_tools_box = tools_box
+
         self.mode_var = tk.StringVar(value="pen")
-        rb_pen = tk.Radiobutton(tab, text="✏ Ручка / Кисть", variable=self.mode_var, value="pen", fg="white", bg="#252526", selectcolor="#333337", activebackground="#252526", command=self._set_mode)
-        rb_pen.pack(anchor="w")
-        rb_erase = tk.Radiobutton(tab, text="🧽 Ластик", variable=self.mode_var, value="eraser", fg="white", bg="#252526", selectcolor="#333337", activebackground="#252526", command=self._set_mode)
-        rb_erase.pack(anchor="w")
-        rb_text = tk.Radiobutton(tab, text="🔤 Текст (кликните по холсту для вставки)", variable=self.mode_var, value="text", fg="white", bg="#252526", selectcolor="#333337", activebackground="#252526", command=self._set_mode)
-        rb_text.pack(anchor="w")
+        self.rb_pen = tk.Radiobutton(tools_box, text=self.tr("tool_pen"), variable=self.mode_var, value="pen", fg="#000000", bg="#eae8e1", selectcolor="#ffffff", activebackground="#eae8e1", font=("Segoe UI", 10, "bold"), command=self._set_mode)
+        self.rb_pen.pack(anchor="w", pady=2)
+        self.rb_erase = tk.Radiobutton(tools_box, text=self.tr("tool_eraser"), variable=self.mode_var, value="eraser", fg="#000000", bg="#eae8e1", selectcolor="#ffffff", activebackground="#eae8e1", font=("Segoe UI", 10, "bold"), command=self._set_mode)
+        self.rb_erase.pack(anchor="w", pady=2)
+        self.rb_text = tk.Radiobutton(tools_box, text=self.tr("tool_text"), variable=self.mode_var, value="text", fg="#000000", bg="#eae8e1", selectcolor="#ffffff", activebackground="#eae8e1", font=("Segoe UI", 10, "bold"), command=self._set_mode)
+        self.rb_text.pack(anchor="w", pady=2)
 
-        tk.Label(tab, text="Текст для вставки:", fg="#aaaaaa", bg="#252526", font=("Segoe UI", 8)).pack(anchor="w", pady=(8, 2))
-        self.text_input = tk.Entry(tab, bg="#333337", fg="white", insertbackground="white")
-        self.text_input.insert(0, "Заметка...")
-        self.text_input.pack(fill="x", pady=(0, 8))
+        self.text_insert_lbl = tk.Label(tools_box, text=self.tr("text_insert_label"), fg="#222222", bg="#eae8e1", font=("Segoe UI", 9, "bold"))
+        self.text_insert_lbl.pack(anchor="w", pady=(6, 2))
+        self.text_input = tk.Entry(tools_box, bg="#ffffff", fg="#000000", insertbackground="black", bd=1, relief="solid", font=("Segoe UI", 10))
+        self.text_input.insert(0, self.tr("text_default"))
+        self.text_input.pack(fill="x", pady=(0, 6))
 
-        tk.Label(tab, text="Толщина кисти / размер текста:", fg="#cccccc", bg="#252526", font=("Segoe UI", 8)).pack(anchor="w")
-        self.slider_size = tk.Scale(tab, from_=1, to=40, orient="horizontal", bg="#252526", fg="white", highlightthickness=0, command=self._on_size_change)
+        self.brush_size_lbl = tk.Label(tools_box, text=self.tr("brush_size_label"), fg="#222222", bg="#eae8e1", font=("Segoe UI", 9, "bold"))
+        self.brush_size_lbl.pack(anchor="w")
+        self.slider_size = tk.Scale(tools_box, from_=1, to=40, orient="horizontal", bg="#eae8e1", fg="#000000", highlightthickness=0, command=self._on_size_change)
         self.slider_size.set(5)
-        self.slider_size.pack(fill="x", pady=(0, 10))
+        self.slider_size.pack(fill="x", pady=(0, 4))
 
-        # Image operations
-        tk.Label(tab, text="Загрузка картинок:", fg="#ffffff", bg="#252526", font=("Segoe UI", 9, "bold")).pack(anchor="w", pady=(10, 4))
-        btn_load = tk.Button(tab, text="📂 Загрузить картинку с компьютера...", bg="#4e5157", fg="white", relief="flat", command=self.action_load_image)
-        btn_load.pack(fill="x", pady=2)
+        # Image operations box
+        img_box = tk.LabelFrame(content, text=f" {self.tr('img_load_label')} ", fg="#000000", bg="#eae8e1", bd=1, relief="solid", font=("Segoe UI", 10, "bold"), padx=10, pady=8)
+        img_box.pack(fill="x", pady=(0, 10))
+        self.canvas_img_box = img_box
 
-        # Dithering mode option
+        self.btn_load_img = tk.Button(img_box, text=self.tr("btn_load_img"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 10, "bold"), pady=5, bd=1, command=self.action_load_image)
+        self.btn_load_img.pack(fill="x", pady=(0, 6))
+
         self.dither_var = tk.BooleanVar(value=False)
-        cb_dither = tk.Checkbutton(tab, text="Фото-дизеринг (Floyd-Steinberg для фото)", variable=self.dither_var, fg="white", bg="#252526", selectcolor="#333337", activebackground="#252526")
-        cb_dither.pack(anchor="w", pady=4)
+        self.cb_dither = tk.Checkbutton(img_box, text=self.tr("cb_dither"), variable=self.dither_var, fg="#000000", bg="#eae8e1", selectcolor="#ffffff", activebackground="#eae8e1", font=("Segoe UI", 10))
+        self.cb_dither.pack(anchor="w")
 
-        # Slideshow frame
-        slide_frame = tk.LabelFrame(tab, text=" Слайдшоу из папки ", fg="#ffffff", bg="#252526", padx=8, pady=8)
-        slide_frame.pack(fill="x", pady=(10, 0))
-        tk.Button(slide_frame, text="Выбрать папку с фото...", bg="#3a3d41", fg="white", relief="flat", command=self.action_choose_slideshow_dir).pack(fill="x", pady=2)
-        self.slide_info_lbl = tk.Label(slide_frame, text="Папка не выбрана", fg="#888888", bg="#252526", font=("Segoe UI", 8))
-        self.slide_info_lbl.pack(pady=2)
+        # Slideshow box
+        self.slide_frame = tk.LabelFrame(content, text=self.tr("slideshow_box"), fg="#000000", bg="#eae8e1", bd=1, relief="solid", font=("Segoe UI", 10, "bold"), padx=10, pady=8)
+        self.slide_frame.pack(fill="x")
+        self.btn_choose_folder = tk.Button(self.slide_frame, text=self.tr("btn_choose_folder"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 10, "bold"), pady=4, bd=1, command=self.action_choose_slideshow_dir)
+        self.btn_choose_folder.pack(fill="x", pady=2)
+        self.slide_info_lbl = tk.Label(self.slide_frame, text=self.tr("folder_none"), fg="#555555", bg="#eae8e1", font=("Segoe UI", 9, "bold"))
+        self.slide_info_lbl.pack(pady=4)
 
-        s_ctrl = tk.Frame(slide_frame, bg="#252526")
+        s_ctrl = tk.Frame(self.slide_frame, bg="#eae8e1")
         s_ctrl.pack(fill="x", pady=2)
-        tk.Button(s_ctrl, text="◀ Назад", bg="#3a3d41", fg="white", relief="flat", width=12, command=self.action_slide_prev).pack(side="left", padx=2)
-        tk.Button(s_ctrl, text="Вперед ▶", bg="#3a3d41", fg="white", relief="flat", width=12, command=self.action_slide_next).pack(side="right", padx=2)
+        self.btn_slide_prev = tk.Button(s_ctrl, text=self.tr("btn_prev"), bg="#333333", fg="white", relief="flat", width=12, font=("Segoe UI", 9, "bold"), pady=3, command=self.action_slide_prev)
+        self.btn_slide_prev.pack(side="left", padx=2)
+        self.btn_slide_next = tk.Button(s_ctrl, text=self.tr("btn_next"), bg="#333333", fg="white", relief="flat", width=12, font=("Segoe UI", 9, "bold"), pady=3, command=self.action_slide_next)
+        self.btn_slide_next.pack(side="right", padx=2)
 
     # -------------------------------------------------------------------------
-    # TAB: SCREEN STREAMING
+    # TAB: SCREEN STREAMING (E-INK STYLE)
     # -------------------------------------------------------------------------
     def _build_tab_stream(self):
-        tab = tk.Frame(self.notebook, bg="#252526", padx=12, pady=12)
-        self.notebook.add(tab, text="🖥️ Стриминг ПК")
+        tab = tk.Frame(self.notebook, bg="#f5f4ef", padx=10, pady=10)
+        self.notebook.add(tab, text=self.tr("tab_stream"))
 
-        tk.Label(tab, text="Прямая трансляция экрана компьютера:", fg="#ffffff", bg="#252526", font=("Segoe UI", 10, "bold")).pack(anchor="w", pady=(0, 6))
+        eink_card = tk.Frame(tab, bg="#f5f4ef", bd=2, relief="solid")
+        eink_card.pack(fill="both", expand=True)
 
-        tk.Label(tab, text="💡 Совет: Для широкоформатных экранов ПК выберите ориентацию '90° Альбом' — тогда рабочий стол поместится на весь экран Киндла без черных полос!", fg="#89d185", bg="#252526", wraplength=440, justify="left", font=("Segoe UI", 8)).pack(anchor="w", pady=(0, 10))
+        header_bar = tk.Frame(eink_card, bg="#111111", pady=8, padx=14)
+        header_bar.pack(fill="x")
+        self.stream_header_lbl = tk.Label(header_bar, text=self.tr("stream_header"), fg="#ffffff", bg="#111111", font=("Segoe UI", 11, "bold"))
+        self.stream_header_lbl.pack(side="left")
 
-        btn_cap_full = tk.Button(tab, text="📸 Снимок всего экрана ПК", bg="#3a3d41", fg="white", relief="flat", command=self.action_capture_full_screen)
-        btn_cap_full.pack(fill="x", pady=3)
+        content = tk.Frame(eink_card, bg="#f5f4ef", padx=14, pady=12)
+        content.pack(fill="both", expand=True)
 
-        btn_cap_area = tk.Button(tab, text="✂ Захват выделенной области экрана", bg="#3a3d41", fg="white", relief="flat", command=self.action_select_area_capture)
-        btn_cap_area.pack(fill="x", pady=3)
+        self.stream_title_lbl = tk.Label(content, text=self.tr("stream_title"), fg="#000000", bg="#f5f4ef", font=("Segoe UI", 11, "bold"))
+        self.stream_title_lbl.pack(anchor="w", pady=(0, 6))
 
-        tk.Label(tab, text="Настройки стриминга:", fg="#ffffff", bg="#252526", font=("Segoe UI", 9, "bold")).pack(anchor="w", pady=(15, 4))
-        
-        fps_row = tk.Frame(tab, bg="#252526")
+        tip_box = tk.Frame(content, bg="#eae8e1", bd=1, relief="solid", padx=10, pady=8)
+        tip_box.pack(fill="x", pady=(0, 10))
+        self.stream_tip_lbl = tk.Label(tip_box, text=self.tr("stream_tip"), fg="#111111", bg="#eae8e1", wraplength=480, justify="left", font=("Segoe UI", 9))
+        self.stream_tip_lbl.pack(anchor="w")
+
+        self.btn_cap_full = tk.Button(content, text=self.tr("btn_cap_full"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 10, "bold"), pady=5, bd=1, command=self.action_capture_full_screen)
+        self.btn_cap_full.pack(fill="x", pady=3)
+
+        self.btn_cap_area = tk.Button(content, text=self.tr("btn_cap_area"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 10, "bold"), pady=5, bd=1, command=self.action_select_area_capture)
+        self.btn_cap_area.pack(fill="x", pady=3)
+
+        cfg_box = tk.LabelFrame(content, text=f" {self.tr('stream_settings')} ", fg="#000000", bg="#eae8e1", bd=1, relief="solid", font=("Segoe UI", 10, "bold"), padx=10, pady=8)
+        cfg_box.pack(fill="x", pady=(12, 10))
+        self.stream_cfg_box = cfg_box
+
+        fps_row = tk.Frame(cfg_box, bg="#eae8e1")
         fps_row.pack(fill="x", pady=4)
-        tk.Label(fps_row, text="Частота обновления (FPS):", fg="#cccccc", bg="#252526").pack(side="left")
-        self.stream_fps = tk.Spinbox(fps_row, from_=0.2, to=3.0, increment=0.2, width=6, bg="#333337", fg="white")
+        self.stream_fps_lbl = tk.Label(fps_row, text=self.tr("stream_fps_label"), fg="#111111", bg="#eae8e1", font=("Segoe UI", 10, "bold"))
+        self.stream_fps_lbl.pack(side="left")
+        self.stream_fps = tk.Spinbox(fps_row, from_=0.2, to=3.0, increment=0.2, width=6, bg="#ffffff", fg="#000000", font=("Segoe UI", 10, "bold"), bd=1, relief="solid")
         self.stream_fps.delete(0, "end")
         self.stream_fps.insert(0, "1.0")
         self.stream_fps.pack(side="left", padx=10)
 
-        self.btn_stream_toggle = tk.Button(tab, text="▶ Запустить прямую трансляцию", bg="#28a745", fg="white",
-                                           font=("Segoe UI", 10, "bold"), relief="flat", pady=6, command=self.action_toggle_stream)
-        self.btn_stream_toggle.pack(fill="x", pady=(15, 5))
+        self.btn_stream_toggle = tk.Button(content, text=self.tr("btn_stream_start"), bg="#1e7e34", fg="white",
+                                           font=("Segoe UI", 11, "bold"), relief="flat", pady=8, bd=1, command=self.action_toggle_stream)
+        self.btn_stream_toggle.pack(fill="x", pady=(10, 5))
 
     # -------------------------------------------------------------------------
-    # TAB: PC HARDWARE DASHBOARD
+    # TAB: PC HARDWARE DASHBOARD (E-INK STYLE)
     # -------------------------------------------------------------------------
     def _build_tab_dashboard(self):
-        tab = tk.Frame(self.notebook, bg="#252526", padx=12, pady=12)
-        self.notebook.add(tab, text="📊 Дашборд ПК")
+        tab = tk.Frame(self.notebook, bg="#f5f4ef", padx=10, pady=10)
+        self.notebook.add(tab, text=self.tr("tab_dash"))
 
-        tk.Label(tab, text="Монитор ресурсов компьютера в реальном времени:", fg="#ffffff", bg="#252526", font=("Segoe UI", 10, "bold")).pack(anchor="w", pady=(0, 6))
+        eink_card = tk.Frame(tab, bg="#f5f4ef", bd=2, relief="solid")
+        eink_card.pack(fill="both", expand=True)
 
-        tk.Label(tab, text="Отображает загрузку процессора, тактовую частоту, память RAM, остаток диска C: и список самых прожорливых процессов Windows.", fg="#aaaaaa", bg="#252526", wraplength=440, justify="left", font=("Segoe UI", 8)).pack(anchor="w", pady=(0, 10))
+        header_bar = tk.Frame(eink_card, bg="#111111", pady=8, padx=14)
+        header_bar.pack(fill="x")
+        self.dash_header_lbl = tk.Label(header_bar, text=self.tr("dash_header"), fg="#ffffff", bg="#111111", font=("Segoe UI", 11, "bold"))
+        self.dash_header_lbl.pack(side="left")
 
-        btn_render_dash = tk.Button(tab, text="👁 Сформировать дашборд", bg="#0e639c", fg="white", relief="flat", font=("Segoe UI", 9, "bold"), command=self.action_render_dashboard)
-        btn_render_dash.pack(fill="x", pady=4)
+        content = tk.Frame(eink_card, bg="#f5f4ef", padx=14, pady=12)
+        content.pack(fill="both", expand=True)
 
-        tk.Label(tab, text="Автоматическое обновление на Kindle:", fg="#ffffff", bg="#252526", font=("Segoe UI", 9, "bold")).pack(anchor="w", pady=(15, 4))
-        
-        interval_row = tk.Frame(tab, bg="#252526")
+        self.dash_title_lbl = tk.Label(content, text=self.tr("dash_title"), fg="#000000", bg="#f5f4ef", font=("Segoe UI", 11, "bold"))
+        self.dash_title_lbl.pack(anchor="w", pady=(0, 6))
+
+        desc_box = tk.Frame(content, bg="#eae8e1", bd=1, relief="solid", padx=10, pady=8)
+        desc_box.pack(fill="x", pady=(0, 10))
+        self.dash_desc_lbl = tk.Label(desc_box, text=self.tr("dash_desc"), fg="#222222", bg="#eae8e1", wraplength=480, justify="left", font=("Segoe UI", 9))
+        self.dash_desc_lbl.pack(anchor="w")
+
+        self.btn_render_dash = tk.Button(content, text=self.tr("btn_render_dash"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 10, "bold"), pady=6, bd=1, command=self.action_render_dashboard)
+        self.btn_render_dash.pack(fill="x", pady=4)
+
+        auto_box = tk.LabelFrame(content, text=f" {self.tr('dash_auto_title')} ", fg="#000000", bg="#eae8e1", bd=1, relief="solid", font=("Segoe UI", 10, "bold"), padx=10, pady=8)
+        auto_box.pack(fill="x", pady=(12, 10))
+        self.dash_auto_box = auto_box
+
+        interval_row = tk.Frame(auto_box, bg="#eae8e1")
         interval_row.pack(fill="x", pady=4)
-        tk.Label(interval_row, text="Интервал обновления (секунд):", fg="#cccccc", bg="#252526").pack(side="left")
-        self.dash_interval_spin = tk.Spinbox(interval_row, from_=2, to=60, increment=1, width=6, bg="#333337", fg="white")
+        self.dash_interval_lbl = tk.Label(interval_row, text=self.tr("dash_interval_label"), fg="#111111", bg="#eae8e1", font=("Segoe UI", 10, "bold"))
+        self.dash_interval_lbl.pack(side="left")
+        self.dash_interval_spin = tk.Spinbox(interval_row, from_=2, to=60, increment=1, width=6, bg="#ffffff", fg="#000000", font=("Segoe UI", 10, "bold"), bd=1, relief="solid")
         self.dash_interval_spin.delete(0, "end")
         self.dash_interval_spin.insert(0, "5")
         self.dash_interval_spin.pack(side="left", padx=10)
 
-        self.btn_dash_live = tk.Button(tab, text="▶ Запустить живой мониторинг ПК", bg="#28a745", fg="white",
-                                       font=("Segoe UI", 10, "bold"), relief="flat", pady=6, command=self.action_toggle_live_dashboard)
+        self.btn_dash_live = tk.Button(content, text=self.tr("btn_dash_start"), bg="#1e7e34", fg="white",
+                                       font=("Segoe UI", 11, "bold"), relief="flat", pady=8, bd=1, command=self.action_toggle_live_dashboard)
         self.btn_dash_live.pack(fill="x", pady=(10, 5))
 
     # -------------------------------------------------------------------------
-    # TAB: CLOCK & CALENDAR
+    # TAB: CLOCK & CALENDAR (E-INK STYLE)
     # -------------------------------------------------------------------------
     def _build_tab_clock(self):
-        tab = tk.Frame(self.notebook, bg="#252526", padx=12, pady=12)
-        self.notebook.add(tab, text="🕰️ Часы и Календарь")
+        tab = tk.Frame(self.notebook, bg="#f5f4ef", padx=10, pady=10)
+        self.notebook.add(tab, text=self.tr("tab_clock"))
 
-        tk.Label(tab, text="Умные настольные E-Ink часы с календарем:", fg="#ffffff", bg="#252526", font=("Segoe UI", 10, "bold")).pack(anchor="w", pady=(0, 6))
+        eink_card = tk.Frame(tab, bg="#f5f4ef", bd=2, relief="solid")
+        eink_card.pack(fill="both", expand=True)
 
-        tk.Label(tab, text="Город для прогноза погоды (wttr.in):", fg="#cccccc", bg="#252526", font=("Segoe UI", 8)).pack(anchor="w", pady=(4, 2))
-        self.city_entry = tk.Entry(tab, bg="#333337", fg="white", insertbackground="white")
+        header_bar = tk.Frame(eink_card, bg="#111111", pady=8, padx=14)
+        header_bar.pack(fill="x")
+        self.clock_header_lbl = tk.Label(header_bar, text=self.tr("clock_header"), fg="#ffffff", bg="#111111", font=("Segoe UI", 11, "bold"))
+        self.clock_header_lbl.pack(side="left")
+
+        content = tk.Frame(eink_card, bg="#f5f4ef", padx=14, pady=12)
+        content.pack(fill="both", expand=True)
+
+        self.clock_title_lbl = tk.Label(content, text=self.tr("clock_title"), fg="#000000", bg="#f5f4ef", font=("Segoe UI", 11, "bold"))
+        self.clock_title_lbl.pack(anchor="w", pady=(0, 6))
+
+        cfg_box = tk.LabelFrame(content, text=f" {self.tr('clock_header')} ", fg="#000000", bg="#eae8e1", bd=1, relief="solid", font=("Segoe UI", 10, "bold"), padx=10, pady=8)
+        cfg_box.pack(fill="x", pady=(0, 10))
+        self.clock_cfg_box = cfg_box
+
+        self.city_lbl = tk.Label(cfg_box, text=self.tr("city_label"), fg="#111111", bg="#eae8e1", font=("Segoe UI", 9, "bold"))
+        self.city_lbl.pack(anchor="w", pady=(2, 2))
+        self.city_entry = tk.Entry(cfg_box, bg="#ffffff", fg="#000000", insertbackground="black", bd=1, relief="solid", font=("Segoe UI", 10))
         self.city_entry.insert(0, self.cfg.get("city", DEFAULT_CITY))
         self.city_entry.pack(fill="x", pady=(0, 8))
 
-        tk.Label(tab, text="Заметка / напоминание внизу часов:", fg="#cccccc", bg="#252526", font=("Segoe UI", 8)).pack(anchor="w", pady=(4, 2))
-        self.note_entry = tk.Entry(tab, bg="#333337", fg="white", insertbackground="white")
-        self.note_entry.insert(0, "Продуктивного дня!")
-        self.note_entry.pack(fill="x", pady=(0, 10))
+        self.note_lbl = tk.Label(cfg_box, text=self.tr("note_label"), fg="#111111", bg="#eae8e1", font=("Segoe UI", 9, "bold"))
+        self.note_lbl.pack(anchor="w", pady=(2, 2))
+        self.note_entry = tk.Entry(cfg_box, bg="#ffffff", fg="#000000", insertbackground="black", bd=1, relief="solid", font=("Segoe UI", 10))
+        self.note_entry.insert(0, self.tr("note_default"))
+        self.note_entry.pack(fill="x", pady=(0, 6))
 
-        btn_render_clock = tk.Button(tab, text="👁 Сформировать часы и календарь", bg="#0e639c", fg="white", relief="flat", font=("Segoe UI", 9, "bold"), command=self.action_render_clock)
-        btn_render_clock.pack(fill="x", pady=4)
+        self.btn_render_clock = tk.Button(content, text=self.tr("btn_render_clock"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 10, "bold"), pady=6, bd=1, command=self.action_render_clock)
+        self.btn_render_clock.pack(fill="x", pady=4)
 
-        tk.Label(tab, text="Режим настольных часов (автообновление раз в минуту):", fg="#ffffff", bg="#252526", font=("Segoe UI", 9, "bold")).pack(anchor="w", pady=(15, 4))
-        
-        self.btn_clock_live = tk.Button(tab, text="▶ Запустить живые настольные часы", bg="#28a745", fg="white",
-                                        font=("Segoe UI", 10, "bold"), relief="flat", pady=6, command=self.action_toggle_live_clock)
-        self.btn_clock_live.pack(fill="x", pady=(10, 5))
+        live_box = tk.LabelFrame(content, text=f" {self.tr('clock_live_title')} ", fg="#000000", bg="#eae8e1", bd=1, relief="solid", font=("Segoe UI", 10, "bold"), padx=10, pady=8)
+        live_box.pack(fill="x", pady=(12, 10))
+        self.clock_live_box = live_box
+
+        self.btn_clock_live = tk.Button(live_box, text=self.tr("btn_clock_start"), bg="#1e7e34", fg="white",
+                                        font=("Segoe UI", 11, "bold"), relief="flat", pady=8, bd=1, command=self.action_toggle_live_clock)
+        self.btn_clock_live.pack(fill="x", pady=4)
 
     # -------------------------------------------------------------------------
-    # TAB: TO-DO / NOTES
+    # TAB: TO-DO / NOTES (E-INK STYLE)
     # -------------------------------------------------------------------------
     def _build_tab_todo(self):
-        tab = tk.Frame(self.notebook, bg="#252526", padx=12, pady=12)
-        self.notebook.add(tab, text="📝 Заметки / To-Do")
+        tab = tk.Frame(self.notebook, bg="#f5f4ef", padx=10, pady=10)
+        self.notebook.add(tab, text=self.tr("tab_todo"))
 
-        tk.Label(tab, text="Стикер задач на E-Ink экран:", fg="#ffffff", bg="#252526", font=("Segoe UI", 10, "bold")).pack(anchor="w", pady=(0, 6))
+        eink_card = tk.Frame(tab, bg="#f5f4ef", bd=2, relief="solid")
+        eink_card.pack(fill="both", expand=True)
 
-        tk.Label(tab, text="Заголовок:", fg="#cccccc", bg="#252526", font=("Segoe UI", 8)).pack(anchor="w", pady=(2, 2))
-        self.todo_title_entry = tk.Entry(tab, bg="#333337", fg="white", insertbackground="white")
-        self.todo_title_entry.insert(0, "ПЛАНЫ НА СЕГОДНЯ")
-        self.todo_title_entry.pack(fill="x", pady=(0, 6))
+        header_bar = tk.Frame(eink_card, bg="#111111", pady=8, padx=14)
+        header_bar.pack(fill="x")
+        self.todo_header_lbl = tk.Label(header_bar, text=self.tr("todo_header"), fg="#ffffff", bg="#111111", font=("Segoe UI", 11, "bold"))
+        self.todo_header_lbl.pack(side="left")
 
-        tk.Label(tab, text="Список задач (используйте [x] для выполненных, [ ] для активных):", fg="#cccccc", bg="#252526", font=("Segoe UI", 8)).pack(anchor="w", pady=(4, 2))
-        self.todo_text = tk.Text(tab, height=10, bg="#333337", fg="white", insertbackground="white", font=("Segoe UI", 9))
-        self.todo_text.insert("1.0", "[x] Прошить Kindle и поставить KUAL\n[x] Настроить ScreenSavers и большие шрифты\n[ ] Протестировать стриминг экрана\n[ ] Поставить KOReader\n[ ] Закинуть любимые книги\n[ ] Отдохнуть вечером")
+        content = tk.Frame(eink_card, bg="#f5f4ef", padx=14, pady=12)
+        content.pack(fill="both", expand=True)
+
+        self.todo_title_lbl = tk.Label(content, text=self.tr("todo_title_label"), fg="#000000", bg="#f5f4ef", font=("Segoe UI", 10, "bold"))
+        self.todo_title_lbl.pack(anchor="w", pady=(0, 2))
+        self.todo_title_entry = tk.Entry(content, bg="#ffffff", fg="#000000", insertbackground="black", bd=1, relief="solid", font=("Segoe UI", 11, "bold"))
+        self.todo_title_entry.insert(0, self.tr("todo_title_default"))
+        self.todo_title_entry.pack(fill="x", pady=(0, 8))
+
+        self.todo_items_lbl = tk.Label(content, text=self.tr("todo_items_label"), fg="#000000", bg="#f5f4ef", font=("Segoe UI", 10, "bold"))
+        self.todo_items_lbl.pack(anchor="w", pady=(0, 2))
+        self.todo_text = tk.Text(content, height=10, bg="#ffffff", fg="#000000", insertbackground="black", bd=1, relief="solid", font=("Consolas", 10))
+        self.todo_text.insert("1.0", self.tr("todo_default_items"))
         self.todo_text.pack(fill="both", expand=True, pady=(0, 8))
 
-        btn_render_todo = tk.Button(tab, text="👁 Сформировать стикер задач", bg="#0e639c", fg="white", relief="flat", font=("Segoe UI", 9, "bold"), command=self.action_render_todo)
-        btn_render_todo.pack(fill="x", pady=3)
+        self.btn_render_todo = tk.Button(content, text=self.tr("btn_render_todo"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 10, "bold"), pady=6, bd=1, command=self.action_render_todo)
+        self.btn_render_todo.pack(fill="x", pady=2)
 
     # -------------------------------------------------------------------------
     # TAB: BOOKS & WIRELESS SYNC (E-INK STYLE)
     # -------------------------------------------------------------------------
     def _build_tab_books(self):
-        tab = tk.Frame(self.notebook, bg="#1e1e1e", padx=10, pady=10)
+        tab = tk.Frame(self.notebook, bg="#f5f4ef", padx=10, pady=10)
         self.notebook.add(tab, text=self.tr("tab_books"))
 
         # Outer E-Ink styled display card
@@ -985,7 +1353,7 @@ class KindleStudioApp(tk.Tk):
         self.rb_usb.pack(side="left", padx=(0, 16))
 
         self.btn_books_refresh = tk.Button(ctrl_bar, text=self.tr("books_refresh"), bg="#111111", fg="#ffffff", relief="flat",
-                                           font=("Segoe UI", 10, "bold"), padx=12, pady=4, command=self.action_refresh_books)
+                                           font=("Segoe UI", 10, "bold"), padx=12, pady=4, bd=1, command=self.action_refresh_books)
         self.btn_books_refresh.pack(side="left", padx=(0, 12))
 
         self.books_status_badge = tk.Label(ctrl_bar, text=self.tr("books_loading"), fg="#555555", bg="#eae8e1", font=("Segoe UI", 10, "bold"))
@@ -1031,11 +1399,11 @@ class KindleStudioApp(tk.Tk):
         cat_acts.pack(fill="x", pady=(8, 0))
 
         self.btn_delete_book = tk.Button(cat_acts, text=self.tr("books_delete"), bg="#c9302c", fg="#ffffff", relief="flat",
-                                         font=("Segoe UI", 10, "bold"), padx=10, pady=4, command=self.action_delete_book)
+                                         font=("Segoe UI", 10, "bold"), padx=10, pady=4, bd=1, command=self.action_delete_book)
         self.btn_delete_book.pack(side="left", padx=(0, 10))
 
-        self.btn_rescan_display = tk.Button(cat_acts, text=self.tr("books_rescan"), bg="#3a3d41", fg="#ffffff", relief="flat",
-                                            font=("Segoe UI", 10), padx=10, pady=4, command=self.action_rescan_library)
+        self.btn_rescan_display = tk.Button(cat_acts, text=self.tr("books_rescan"), bg="#333333", fg="#ffffff", relief="flat",
+                                            font=("Segoe UI", 10, "bold"), padx=10, pady=4, bd=1, command=self.action_rescan_library)
         self.btn_rescan_display.pack(side="left")
 
         # 4. Bottom Section: Upload & Auto-Convert Box
@@ -1044,8 +1412,8 @@ class KindleStudioApp(tk.Tk):
         self.up_box.pack(fill="x", padx=14, pady=(0, 12))
 
         # Big prominent upload button
-        self.btn_pick_books = tk.Button(self.up_box, text=self.tr("books_pick_btn"), bg="#0e639c", fg="#ffffff", relief="flat",
-                                        font=("Segoe UI", 11, "bold"), pady=6, command=self.action_upload_books)
+        self.btn_pick_books = tk.Button(self.up_box, text=self.tr("books_pick_btn"), bg="#111111", fg="#ffffff", relief="flat",
+                                        font=("Segoe UI", 11, "bold"), pady=6, bd=1, command=self.action_upload_books)
         self.btn_pick_books.pack(fill="x", pady=(0, 6))
 
         # Format options row
@@ -1079,61 +1447,59 @@ class KindleStudioApp(tk.Tk):
         self.book_log_lbl.pack(anchor="w")
 
     # -------------------------------------------------------------------------
-    # TAB: JAILBREAK & EXTENSIONS INSTALLER
+    # TAB: JAILBREAK & EXTENSIONS INSTALLER (E-INK STYLE)
     # -------------------------------------------------------------------------
     def _build_tab_jailbreak(self):
-        tab = tk.Frame(self.notebook, bg="#252526", padx=12, pady=12)
-        self.notebook.add(tab, text="🚀 Прошивка & AI")
+        tab = tk.Frame(self.notebook, bg="#f5f4ef", padx=10, pady=10)
+        self.notebook.add(tab, text=self.tr("tab_jb"))
+
+        eink_card = tk.Frame(tab, bg="#f5f4ef", bd=2, relief="solid")
+        eink_card.pack(fill="both", expand=True)
+
+        header_bar = tk.Frame(eink_card, bg="#111111", pady=8, padx=14)
+        header_bar.pack(fill="x")
+        self.jb_header_lbl = tk.Label(header_bar, text=self.tr("jb_header"), fg="#ffffff", bg="#111111", font=("Segoe UI", 11, "bold"))
+        self.jb_header_lbl.pack(side="left")
+
+        content = tk.Frame(eink_card, bg="#f5f4ef", padx=14, pady=10)
+        content.pack(fill="both", expand=True)
 
         # 1. Kindle USB Auto-Detection Section
-        detect_box = tk.LabelFrame(tab, text=" 📱 Подключение Kindle по USB ", fg="#ffffff", bg="#252526", padx=10, pady=8)
-        detect_box.pack(fill="x", pady=(0, 10))
+        self.detect_box = tk.LabelFrame(content, text=self.tr("usb_box_title"), fg="#000000", bg="#eae8e1", bd=1, relief="solid", font=("Segoe UI", 10, "bold"), padx=10, pady=8)
+        self.detect_box.pack(fill="x", pady=(0, 8))
 
-        row1 = tk.Frame(detect_box, bg="#252526")
+        row1 = tk.Frame(self.detect_box, bg="#eae8e1")
         row1.pack(fill="x", pady=2)
 
-        self.btn_detect_kindle = tk.Button(row1, text="🔍 Найти Kindle (USB)", bg="#3a3d41", fg="white", relief="flat", font=("Segoe UI", 9, "bold"), command=self.action_detect_kindle)
+        self.btn_detect_kindle = tk.Button(row1, text=self.tr("btn_detect_kindle"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 9, "bold"), padx=10, pady=3, bd=1, command=self.action_detect_kindle)
         self.btn_detect_kindle.pack(side="left", padx=(0, 10))
 
-        self.kindle_usb_status_lbl = tk.Label(row1, text="Нажмите 'Найти Kindle' для проверки", fg="#aaaaaa", bg="#252526", font=("Segoe UI", 9))
+        self.kindle_usb_status_lbl = tk.Label(row1, text=self.tr("usb_detect_hint"), fg="#555555", bg="#eae8e1", font=("Segoe UI", 9, "bold"))
         self.kindle_usb_status_lbl.pack(side="left")
 
         # 2. 1-Click AI Chat Deployer
-        ai_box = tk.LabelFrame(tab, text=" 🤖 Установка AI Chat (GLM-5.3 Flash) в 1 клик ", fg="#ffffff", bg="#252526", padx=10, pady=8)
-        ai_box.pack(fill="x", pady=(0, 10))
+        self.ai_box = tk.LabelFrame(content, text=self.tr("ai_box_title"), fg="#000000", bg="#eae8e1", bd=1, relief="solid", font=("Segoe UI", 10, "bold"), padx=10, pady=8)
+        self.ai_box.pack(fill="x", pady=(0, 8))
 
-        tk.Label(ai_box, text="API Ключ Polza.ai (сохраняется в /mnt/us/ai/config.json):", fg="#cccccc", bg="#252526", font=("Segoe UI", 8)).pack(anchor="w")
-        self.ai_key_entry = tk.Entry(ai_box, bg="#333337", fg="white", insertbackground="white")
+        self.ai_key_lbl = tk.Label(self.ai_box, text=self.tr("ai_key_label"), fg="#222222", bg="#eae8e1", font=("Segoe UI", 9, "bold"))
+        self.ai_key_lbl.pack(anchor="w")
+        self.ai_key_entry = tk.Entry(self.ai_box, bg="#ffffff", fg="#000000", insertbackground="black", bd=1, relief="solid", font=("Segoe UI", 10))
         existing_key = self.cfg.get("api_key", "")
         if existing_key:
             self.ai_key_entry.insert(0, existing_key)
         self.ai_key_entry.pack(fill="x", pady=(2, 6))
 
-        btn_install_ai = tk.Button(ai_box, text="📥 Установить AI Chat на Kindle", bg="#0e639c", fg="white", relief="flat", font=("Segoe UI", 9, "bold"), command=self.action_install_ai)
-        btn_install_ai.pack(fill="x", pady=2)
+        self.btn_install_ai = tk.Button(self.ai_box, text=self.tr("btn_install_ai"), bg="#111111", fg="white", activebackground="#333333", activeforeground="white", relief="flat", font=("Segoe UI", 10, "bold"), pady=5, bd=1, command=self.action_install_ai)
+        self.btn_install_ai.pack(fill="x", pady=2)
 
         # 3. Jailbreak & Extensions Guide
-        jb_box = tk.LabelFrame(tab, text=" 📖 Мастер Джейлбрейка & Сторонних Приложений ", fg="#ffffff", bg="#252526", padx=10, pady=8)
-        jb_box.pack(fill="both", expand=True)
+        self.jb_box = tk.LabelFrame(content, text=self.tr("guide_box_title"), fg="#000000", bg="#eae8e1", bd=1, relief="solid", font=("Segoe UI", 10, "bold"), padx=10, pady=8)
+        self.jb_box.pack(fill="both", expand=True)
 
-        guide_text = tk.Text(jb_box, height=8, bg="#1e1e1e", fg="#e0e0e0", relief="flat", font=("Segoe UI", 8), wrap="word")
-        guide_text.insert("1.0",
-            "1. ДЖЕЙЛБРЕЙК KINDLE (K3W / K3G / K4 / K5):\n"
-            "   • Подключите Kindle по USB к компьютеру.\n"
-            "   • Скачайте архив джейлбрейка (MobileRead Kindle Jailbreak).\n"
-            "   • Скопируйте файл update_jailbreak_***_install.bin в корень диска Kindle.\n"
-            "   • Безопасно извлеките Kindle. Нажмите: [Menu] -> Settings -> [Menu] -> Update Your Kindle.\n"
-            "   • Читалка перезагрузится, внизу экрана появится надпись 'Jailbreak succeeded'.\n\n"
-            "2. УСТАНОВКА MKK И KUAL (ЛАУНЧЕР ПРИЛОЖЕНИЙ):\n"
-            "   • Скопируйте файл KUAL-KDK-1.0.azw2 в папку documents/ на Kindle.\n"
-            "   • На главном экране Kindle появится книга 'KUAL' — это меню всех приложений!\n\n"
-            "3. ЗАПУСК AI CHAT:\n"
-            "   • Нажмите кнопку 'Установить AI Chat на Kindle' выше.\n"
-            "   • В KUAL появится пункт 'AI Chat (GLM-5.3)'.\n"
-            "   • Подключитесь к Wi-Fi и общайтесь с ИИ прямо с читалки!"
-        )
-        guide_text.config(state="disabled")
-        guide_text.pack(fill="both", expand=True)
+        self.guide_text = tk.Text(self.jb_box, height=8, bg="#ffffff", fg="#111111", bd=1, relief="solid", font=("Segoe UI", 9), wrap="word")
+        self.guide_text.insert("1.0", self.tr("guide_content"))
+        self.guide_text.config(state="disabled")
+        self.guide_text.pack(fill="both", expand=True)
 
     def find_kindle_drive(self):
         for letter in ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]:
@@ -1367,10 +1733,10 @@ class KindleStudioApp(tk.Tk):
     # -------------------------------------------------------------------------
     def action_render_dashboard(self):
         is_landscape = (self.rotation in (90, 270))
-        self.image = generate_pc_dashboard(landscape=is_landscape)
+        self.image = generate_pc_dashboard(landscape=is_landscape, lang=self.lang)
         self.draw = ImageDraw.Draw(self.image)
         self._update_preview()
-        self.set_status("Дашборд ПК сформирован")
+        self.set_status(self.tr("status_dash_rendered"))
 
     def action_render_clock(self):
         is_landscape = (self.rotation in (90, 270))
@@ -1387,19 +1753,20 @@ class KindleStudioApp(tk.Tk):
             self.weather_cache = fetch_weather(city)
             self.weather_last_fetch = now
 
-        self.image = generate_desk_clock(landscape=is_landscape, weather_data=self.weather_cache, custom_note=note)
+        self.image = generate_desk_clock(landscape=is_landscape, weather_data=self.weather_cache, custom_note=note, lang=self.lang)
         self.draw = ImageDraw.Draw(self.image)
         self._update_preview()
-        self.set_status(f"Часы и календарь сформированы (Погода: {self.weather_cache.get('temp', '')})")
+        temp_val = self.weather_cache.get('temp', '') if self.weather_cache else ''
+        self.set_status(self.tr("status_clock_rendered", temp=temp_val))
 
     def action_render_todo(self):
         is_landscape = (self.rotation in (90, 270))
-        title = self.todo_title_entry.get().strip() or "СПИСОК ДЕЛ"
+        title = self.todo_title_entry.get().strip() or self.tr("todo_title_default")
         items = self.todo_text.get("1.0", "end")
-        self.image = generate_todo_note(title=title, text_items=items, landscape=is_landscape)
+        self.image = generate_todo_note(title=title, text_items=items, landscape=is_landscape, lang=self.lang)
         self.draw = ImageDraw.Draw(self.image)
         self._update_preview()
-        self.set_status("Стикер заметок сформирован")
+        self.set_status(self.tr("status_todo_rendered"))
 
     # -------------------------------------------------------------------------
     # LIVE WORKER TOGGLES (STREAM / DASHBOARD / CLOCK)
@@ -1414,19 +1781,19 @@ class KindleStudioApp(tk.Tk):
         self.worker_thread = None
 
         # Reset button states
-        self.btn_stream_toggle.config(text="▶ Запустить прямую трансляцию", bg="#28a745")
-        self.btn_dash_live.config(text="▶ Запустить живой мониторинг ПК", bg="#28a745")
-        self.btn_clock_live.config(text="▶ Запустить живые настольные часы", bg="#28a745")
+        self.btn_stream_toggle.config(text=self.tr("btn_stream_start"), bg="#1e7e34")
+        self.btn_dash_live.config(text=self.tr("btn_dash_start"), bg="#1e7e34")
+        self.btn_clock_live.config(text=self.tr("btn_clock_start"), bg="#1e7e34")
 
     def action_toggle_stream(self):
         if self.active_mode == "stream":
             self._stop_active_worker()
-            self.set_status("Трансляция остановлена")
+            self.set_status(self.tr("status_stream_stopped"))
             return
 
         self._stop_active_worker()
         if not mss:
-            messagebox.showerror("Ошибка", "Модуль mss не установлен!")
+            messagebox.showerror("Error" if self.lang == "en" else "Ошибка", "mss module not installed!" if self.lang == "en" else "Модуль mss не установлен!")
             return
 
         try:
@@ -1436,8 +1803,9 @@ class KindleStudioApp(tk.Tk):
 
         self.active_mode = "stream"
         self.worker_stop_event = threading.Event()
-        self.btn_stream_toggle.config(text="⏹ Остановить трансляцию", bg="#d9534f")
-        self.set_status(f"Идет прямая трансляция ({fps_val} FPS, поворот {self.rotation}°)...", fg="#007acc")
+        self.btn_stream_toggle.config(text=self.tr("btn_stream_stop"), bg="#b02a37")
+        mode_str = f"Stream active ({fps_val} FPS, rot {self.rotation}°)..." if self.lang == "en" else f"Идет прямая трансляция ({fps_val} FPS, поворот {self.rotation}°)..."
+        self.set_status(mode_str, fg="#007acc")
 
         srv = self.ip_entry.get().strip()
         dither_flag = self.dither_var.get()
@@ -1469,7 +1837,7 @@ class KindleStudioApp(tk.Tk):
                         frame.paste(resized, ((tw - nw) // 2, (th - nh) // 2))
 
                         send_image_to_kindle(frame, srv, rotation=rot, dither=dither_flag)
-                    except Exception as e:
+                    except Exception:
                         time.sleep(1)
 
                     rem = interval - (time.time() - t0)
@@ -1482,7 +1850,7 @@ class KindleStudioApp(tk.Tk):
     def action_toggle_live_dashboard(self):
         if self.active_mode == "dashboard":
             self._stop_active_worker()
-            self.set_status("Мониторинг ПК остановлен")
+            self.set_status(self.tr("status_dash_stopped"))
             return
 
         self._stop_active_worker()
@@ -1493,8 +1861,9 @@ class KindleStudioApp(tk.Tk):
 
         self.active_mode = "dashboard"
         self.worker_stop_event = threading.Event()
-        self.btn_dash_live.config(text="⏹ Остановить мониторинг", bg="#d9534f")
-        self.set_status(f"Идет живой мониторинг ПК (каждые {interval_sec} сек)...", fg="#007acc")
+        self.btn_dash_live.config(text=self.tr("btn_dash_stop"), bg="#b02a37")
+        mode_str = f"Live PC Monitor active (every {interval_sec}s)..." if self.lang == "en" else f"Идет живой мониторинг ПК (каждые {interval_sec} сек)..."
+        self.set_status(mode_str, fg="#007acc")
 
         srv = self.ip_entry.get().strip()
         rot = self.rotation
@@ -1504,7 +1873,7 @@ class KindleStudioApp(tk.Tk):
             while not self.worker_stop_event.is_set():
                 t0 = time.time()
                 try:
-                    dash_img = generate_pc_dashboard(landscape=is_landscape)
+                    dash_img = generate_pc_dashboard(landscape=is_landscape, lang=self.lang)
                     # Update local preview safely
                     self.image = dash_img
                     self.draw = ImageDraw.Draw(self.image)
@@ -1524,14 +1893,15 @@ class KindleStudioApp(tk.Tk):
     def action_toggle_live_clock(self):
         if self.active_mode == "clock":
             self._stop_active_worker()
-            self.set_status("Режим часов остановлен")
+            self.set_status(self.tr("status_clock_stopped"))
             return
 
         self._stop_active_worker()
         self.active_mode = "clock"
         self.worker_stop_event = threading.Event()
-        self.btn_clock_live.config(text="⏹ Остановить настольные часы", bg="#d9534f")
-        self.set_status("Режим живых настольных часов активен (обновление раз в минуту)...", fg="#007acc")
+        self.btn_clock_live.config(text=self.tr("btn_clock_stop"), bg="#b02a37")
+        mode_str = "Live Desk Clock active (refresh every minute)..." if self.lang == "en" else "Режим живых настольных часов активен (обновление раз в минуту)..."
+        self.set_status(mode_str, fg="#007acc")
 
         srv = self.ip_entry.get().strip()
         city = self.city_entry.get().strip() or DEFAULT_CITY
@@ -1549,7 +1919,7 @@ class KindleStudioApp(tk.Tk):
                         w_data = fetch_weather(city)
                         last_weather = t0
                     
-                    clock_img = generate_desk_clock(landscape=is_landscape, weather_data=w_data, custom_note=note)
+                    clock_img = generate_desk_clock(landscape=is_landscape, weather_data=w_data, custom_note=note, lang=self.lang)
                     self.image = clock_img
                     self.draw = ImageDraw.Draw(self.image)
                     self.after(0, self._update_preview)
@@ -1558,7 +1928,6 @@ class KindleStudioApp(tk.Tk):
                 except Exception:
                     time.sleep(2)
 
-                # Sleep until next minute boundary
                 now = datetime.datetime.now()
                 sec_to_next = 60 - now.second
                 for _ in range(max(1, sec_to_next)):
@@ -1574,14 +1943,14 @@ class KindleStudioApp(tk.Tk):
     # -------------------------------------------------------------------------
     def action_capture_full_screen(self):
         if not mss:
-            messagebox.showerror("Ошибка", "Модуль mss не найден!")
+            messagebox.showerror("Error" if self.lang == "en" else "Ошибка", "mss module not found!" if self.lang == "en" else "Модуль mss не найден!")
             return
         with mss.mss() as sct:
             mon = sct.monitors[1] if len(sct.monitors) > 1 else sct.monitors[0]
             sct_img = sct.grab(mon)
             cap = Image.frombytes("RGB", sct_img.size, sct_img.bgra, "raw", "BGRX")
             self._fit_to_canvas(cap)
-            self.set_status("Снимок экрана ПК загружен на холст")
+            self.set_status(self.tr("status_screen_loaded"))
 
     def action_select_area_capture(self):
         snipper = tk.Toplevel(self)
@@ -1614,7 +1983,7 @@ class KindleStudioApp(tk.Tk):
                     sct_img = sct.grab(bbox)
                     cap = Image.frombytes("RGB", sct_img.size, sct_img.bgra, "raw", "BGRX")
                     self._fit_to_canvas(cap)
-                    self.set_status("Выделенная область загружена на холст")
+                    self.set_status(self.tr("status_snip_loaded"))
 
         canvas_snip.bind("<ButtonPress-1>", on_down)
         canvas_snip.bind("<B1-Motion>", on_move)
@@ -1640,13 +2009,13 @@ class KindleStudioApp(tk.Tk):
         self._update_preview()
 
     def action_choose_slideshow_dir(self):
-        dir_path = filedialog.askdirectory(title="Выберите папку с картинками")
+        dir_path = filedialog.askdirectory(title="Choose folder with photos" if self.lang == "en" else "Выберите папку с картинками")
         if not dir_path:
             return
         exts = ('.png', '.jpg', '.jpeg', '.bmp', '.webp', '.gif')
         self.slideshow_files = [os.path.join(dir_path, f) for f in os.listdir(dir_path) if f.lower().endswith(exts)]
         if not self.slideshow_files:
-            messagebox.showinfo("Инфо", "В папке нет картинок!")
+            messagebox.showinfo("Info" if self.lang == "en" else "Инфо", "No images found in folder!" if self.lang == "en" else "В папке нет картинок!")
             return
         self.slideshow_idx = 0
         self._load_slide(0)
@@ -1659,7 +2028,7 @@ class KindleStudioApp(tk.Tk):
         with Image.open(path) as img:
             self._fit_to_canvas(img.convert('RGB'))
         self.slide_info_lbl.config(text=f"[{self.slideshow_idx + 1}/{len(self.slideshow_files)}] {os.path.basename(path)}")
-        self.set_status(f"Слайд: {os.path.basename(path)}")
+        self.set_status(f"Slide: {os.path.basename(path)}" if self.lang == "en" else f"Слайд: {os.path.basename(path)}")
 
     def action_slide_next(self):
         if self.slideshow_files:
@@ -1679,15 +2048,15 @@ class KindleStudioApp(tk.Tk):
         self.cfg["ip"] = srv
         save_config(self.cfg)
         
-        self.set_status("Отправка на Kindle...", fg="#007acc")
+        self.set_status(self.tr("status_sending"), fg="#007acc")
         self.btn_send.config(state="disabled")
 
         def worker():
             try:
                 send_image_to_kindle(self.image, srv, rotation=self.rotation, dither=self.dither_var.get())
-                self.set_status("✓ Успешно отображено на экране Kindle", fg="#89d185")
+                self.set_status(self.tr("status_sent_ok"), fg="#006400")
             except Exception as e:
-                self.set_status(f"Ошибка: {e}", fg="#f48771")
+                self.set_status(f"Error: {e}" if self.lang == "en" else f"Ошибка: {e}", fg="#c9302c")
             finally:
                 self.btn_send.config(state="normal")
 
@@ -1695,13 +2064,13 @@ class KindleStudioApp(tk.Tk):
 
     def action_clear_kindle(self):
         srv = self.ip_entry.get().strip()
-        self.set_status("Очистка экрана...", fg="#007acc")
+        self.set_status(self.tr("status_clearing"), fg="#007acc")
         def worker():
             try:
                 clear_kindle(srv)
-                self.set_status("Экран Kindle очищен", fg="#89d185")
+                self.set_status(self.tr("status_cleared"), fg="#006400")
             except Exception as e:
-                self.set_status(f"Ошибка: {e}", fg="#f48771")
+                self.set_status(f"Error: {e}" if self.lang == "en" else f"Ошибка: {e}", fg="#c9302c")
         threading.Thread(target=worker, daemon=True).start()
 
     def action_ping_kindle(self):
@@ -1709,25 +2078,25 @@ class KindleStudioApp(tk.Tk):
 
     def _check_ping_async(self):
         srv = self.ip_entry.get().strip() or DEFAULT_IP
-        self.ping_status_lbl.config(text="● Проверка...", fg="#aaaaaa")
+        self.ping_status_lbl.config(text=self.tr("ping_checking"), fg="#555555")
         def worker():
             ok, latency = check_kindle_ping(srv)
             if ok:
-                self.after(0, lambda: self.ping_status_lbl.config(text=f"🟢 В сети ({latency} мс)", fg="#89d185"))
+                self.after(0, lambda: self.ping_status_lbl.config(text=self.tr("ping_online", latency=latency), fg="#006400"))
             else:
-                self.after(0, lambda: self.ping_status_lbl.config(text="🔴 Офлайн / Wi-Fi?", fg="#f48771"))
+                self.after(0, lambda: self.ping_status_lbl.config(text=self.tr("ping_offline"), fg="#c9302c"))
         threading.Thread(target=worker, daemon=True).start()
 
     def action_create_desktop_shortcut(self):
         try:
             from create_desktop_shortcut import make_shortcut
             make_shortcut()
-            messagebox.showinfo("Готово", "Ярлык 'Kindle Studio' успешно создан на Рабочем столе!")
-            self.set_status("✓ Ярлык создан на Рабочем столе")
+            messagebox.showinfo("Done" if self.lang == "en" else "Готово", "Desktop shortcut created successfully!" if self.lang == "en" else "Ярлык 'Kindle Studio' успешно создан на Рабочем столе!")
+            self.set_status(self.tr("status_shortcut_ok"))
         except Exception as e:
-            messagebox.showerror("Ошибка", f"Не удалось создать ярлык: {e}")
+            messagebox.showerror("Error" if self.lang == "en" else "Ошибка", f"Failed to create shortcut: {e}" if self.lang == "en" else f"Не удалось создать ярлык: {e}")
 
-    def set_status(self, text, fg="#89d185"):
+    def set_status(self, text, fg="#006400"):
         self.status_lbl.config(text=text, fg=fg)
 
     # -------------------------------------------------------------------------
@@ -1758,6 +2127,20 @@ class KindleStudioApp(tk.Tk):
         self.btn_ping.config(text=self.tr("btn_ping"))
         self.status_lbl.config(text=self.tr("ready"))
 
+        # Preview Panel
+        if hasattr(self, "preview_rot_lbl"):
+            self.preview_rot_lbl.config(text=self.tr("preview_header"))
+            self.rot_btn_left.config(text=self.tr("rot_left"))
+            self.rot_btn_right.config(text=self.tr("rot_right"))
+            for rb, lkey in self.rot_rbs:
+                rb.config(text=self.tr(lkey))
+            is_landscape = (self.rotation in (90, 270))
+            self.res_lbl.config(text=self.tr("res_landscape") if is_landscape else self.tr("res_portrait"))
+            self.btn_invert.config(text=self.tr("btn_invert"))
+            self.btn_clear_canvas.config(text=self.tr("btn_clear_canvas"))
+            self.btn_save_png.config(text=self.tr("btn_save_png"))
+
+        # Notebook Tabs
         tab_names = [
             self.tr("tab_canvas"),
             self.tr("tab_stream"),
@@ -1773,6 +2156,74 @@ class KindleStudioApp(tk.Tk):
             except Exception:
                 pass
 
+        # Tab 1: Canvas
+        if hasattr(self, "canvas_header_lbl"):
+            self.canvas_header_lbl.config(text=self.tr("canvas_header"))
+            self.canvas_tools_box.config(text=f" {self.tr('canvas_tools')} ")
+            self.rb_pen.config(text=self.tr("tool_pen"))
+            self.rb_erase.config(text=self.tr("tool_eraser"))
+            self.rb_text.config(text=self.tr("tool_text"))
+            self.text_insert_lbl.config(text=self.tr("text_insert_label"))
+            self.brush_size_lbl.config(text=self.tr("brush_size_label"))
+            self.canvas_img_box.config(text=f" {self.tr('img_load_label')} ")
+            self.btn_load_img.config(text=self.tr("btn_load_img"))
+            self.cb_dither.config(text=self.tr("cb_dither"))
+            self.slide_frame.config(text=self.tr("slideshow_box"))
+            self.btn_choose_folder.config(text=self.tr("btn_choose_folder"))
+            if not self.slideshow_files:
+                self.slide_info_lbl.config(text=self.tr("folder_none"))
+            self.btn_slide_prev.config(text=self.tr("btn_prev"))
+            self.btn_slide_next.config(text=self.tr("btn_next"))
+
+        # Tab 2: Stream
+        if hasattr(self, "stream_header_lbl"):
+            self.stream_header_lbl.config(text=self.tr("stream_header"))
+            self.stream_title_lbl.config(text=self.tr("stream_title"))
+            self.stream_tip_lbl.config(text=self.tr("stream_tip"))
+            self.btn_cap_full.config(text=self.tr("btn_cap_full"))
+            self.btn_cap_area.config(text=self.tr("btn_cap_area"))
+            self.stream_cfg_box.config(text=f" {self.tr('stream_settings')} ")
+            self.stream_fps_lbl.config(text=self.tr("stream_fps_label"))
+            if self.active_mode == "stream":
+                self.btn_stream_toggle.config(text=self.tr("btn_stream_stop"))
+            else:
+                self.btn_stream_toggle.config(text=self.tr("btn_stream_start"))
+
+        # Tab 3: Dashboard
+        if hasattr(self, "dash_header_lbl"):
+            self.dash_header_lbl.config(text=self.tr("dash_header"))
+            self.dash_title_lbl.config(text=self.tr("dash_title"))
+            self.dash_desc_lbl.config(text=self.tr("dash_desc"))
+            self.btn_render_dash.config(text=self.tr("btn_render_dash"))
+            self.dash_auto_box.config(text=f" {self.tr('dash_auto_title')} ")
+            self.dash_interval_lbl.config(text=self.tr("dash_interval_label"))
+            if self.active_mode == "dashboard":
+                self.btn_dash_live.config(text=self.tr("btn_dash_stop"))
+            else:
+                self.btn_dash_live.config(text=self.tr("btn_dash_start"))
+
+        # Tab 4: Clock
+        if hasattr(self, "clock_header_lbl"):
+            self.clock_header_lbl.config(text=self.tr("clock_header"))
+            self.clock_title_lbl.config(text=self.tr("clock_title"))
+            self.clock_cfg_box.config(text=f" {self.tr('clock_header')} ")
+            self.city_lbl.config(text=self.tr("city_label"))
+            self.note_lbl.config(text=self.tr("note_label"))
+            self.btn_render_clock.config(text=self.tr("btn_render_clock"))
+            self.clock_live_box.config(text=f" {self.tr('clock_live_title')} ")
+            if self.active_mode == "clock":
+                self.btn_clock_live.config(text=self.tr("btn_clock_stop"))
+            else:
+                self.btn_clock_live.config(text=self.tr("btn_clock_start"))
+
+        # Tab 5: To-Do
+        if hasattr(self, "todo_header_lbl"):
+            self.todo_header_lbl.config(text=self.tr("todo_header"))
+            self.todo_title_lbl.config(text=self.tr("todo_title_label"))
+            self.todo_items_lbl.config(text=self.tr("todo_items_label"))
+            self.btn_render_todo.config(text=self.tr("btn_render_todo"))
+
+        # Tab 6: Books
         if hasattr(self, "books_header_lbl"):
             self.books_header_lbl.config(text=self.tr("books_header"))
             self.rb_wifi.config(text=self.tr("books_wifi_mode"))
@@ -1791,6 +2242,20 @@ class KindleStudioApp(tk.Tk):
             conv_bin = kindle_books.find_calibre_converter()
             self.calibre_status_lbl.config(text=self.tr("books_calibre_ok") if conv_bin else self.tr("books_calibre_missing"))
             self.action_refresh_books()
+
+        # Tab 7: Jailbreak & AI
+        if hasattr(self, "jb_header_lbl"):
+            self.jb_header_lbl.config(text=self.tr("jb_header"))
+            self.detect_box.config(text=self.tr("usb_box_title"))
+            self.btn_detect_kindle.config(text=self.tr("btn_detect_kindle"))
+            self.ai_box.config(text=self.tr("ai_box_title"))
+            self.ai_key_lbl.config(text=self.tr("ai_key_label"))
+            self.btn_install_ai.config(text=self.tr("btn_install_ai"))
+            self.jb_box.config(text=self.tr("guide_box_title"))
+            self.guide_text.config(state="normal")
+            self.guide_text.delete("1.0", "end")
+            self.guide_text.insert("1.0", self.tr("guide_content"))
+            self.guide_text.config(state="disabled")
 
     def action_refresh_books(self):
         mode = self.book_conn_mode.get()

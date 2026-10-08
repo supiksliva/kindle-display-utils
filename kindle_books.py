@@ -146,13 +146,16 @@ def parse_kindle_ls_output(output, lang="ru"):
             continue
         
         full_path = parts[8].strip()
+        if "/.sdr/" in full_path or full_path.endswith(".sdr") or ".sdr/" in full_path:
+            continue
+
         if full_path.startswith(base_prefix):
             rel_path = full_path[len(base_prefix):]
         else:
             rel_path = os.path.basename(full_path)
             
         ext = os.path.splitext(full_path)[1].lower()
-        if ext in {".mbp", ".tan", ".asc", ".phl", ".ea", ".pdr", ".han", ".tmp", ".part"}:
+        if ext in {".mbp", ".tan", ".asc", ".phl", ".ea", ".pdr", ".han", ".tmp", ".part", ".apnx", ".opt"}:
             continue
             
         name = os.path.basename(rel_path)
@@ -178,15 +181,6 @@ def list_kindle_books_ssh(server=DEFAULT_IP, ssh_key=None, lang="ru"):
         ssh_key = SSH_KEY
     ssh_target = get_ssh_target(server)
 
-    # Standard POSIX shell loop that safely checks documents/ and subfolders,
-    # skips .sdr folders, and prints ls -l for real files
-    remote_sh = (
-        'for f in /mnt/us/documents/* /mnt/us/documents/*/* /mnt/us/documents/*/*/*; do '
-        'case "$f" in *.sdr*|*.sdr) continue ;; esac; '
-        '[ -f "$f" ] && ls -l "$f"; '
-        'done'
-    )
-
     cmd_args = [
         "ssh",
         "-i", ssh_key,
@@ -195,7 +189,7 @@ def list_kindle_books_ssh(server=DEFAULT_IP, ssh_key=None, lang="ru"):
         "-o", "LogLevel=ERROR",
         "-o", "ConnectTimeout=6",
         ssh_target,
-        remote_sh
+        "find /mnt/us/documents -type f -exec ls -l {} \\;"
     ]
 
     res = subprocess.run(cmd_args, capture_output=True, text=True, errors="replace", timeout=12)
@@ -228,7 +222,7 @@ def list_kindle_books_usb(drive_path, lang="ru"):
             continue
         for f in files:
             ext = os.path.splitext(f)[1].lower()
-            if ext in {".mbp", ".tan", ".asc", ".phl", ".ea", ".pdr", ".han", ".tmp", ".part"}:
+            if ext in {".mbp", ".tan", ".asc", ".phl", ".ea", ".pdr", ".han", ".tmp", ".part", ".apnx", ".opt"}:
                 continue
             fp = os.path.join(root, f)
             try:

@@ -9,13 +9,14 @@
 ## Features
 
 ### 1. Kindle Studio 2.0 (Desktop PC Application)
+* **Authentic E-Ink Design:** High-contrast Carta E-Paper styling (#f5f4ef / #111111), retro headers, enlarged typography, and spacious controls across all 7 tabs.
 * **Real-time Screen Streaming:** Streams your computer screen to the Kindle display in real time, turning it into a dedicated E-Ink secondary monitor for reading code, logs, or documentation without eye fatigue.
 * **System Dashboard & Weather:** Displays live CPU, RAM, disk usage, network transfer rates, local weather forecast, and a calendar.
 * **Desktop Clock:** Full-screen clock face featuring current date and weather, ideal for a nightstand or desk setup.
 * **Notes & To-Do List:** Interactive task list with sticky-note export and checkbox rendering.
 * **Canvas & Image Viewer:** Freehand drawing canvas, image slideshow, and Floyd-Steinberg dithering for crisp grayscale reproduction on E-Ink.
-* **Wireless Book Sync & Universal Converter (E-Ink Design):** Inspects books stored on the Kindle (over Wi-Fi or USB) with an authentic high-contrast E-Ink layout, large typography, search, and deletion capabilities. Accepts any book format (.epub, .fb2, .docx, .txt, .pdf), automatically converts via Calibre into Kindle-compatible formats (.mobi, .azw3), and deploys wirelessly with automatic Kindle library re-indexing.
-* **Bilingual Interface (RU / EN):** Instant one-click language toggle between Russian and English directly from the top control bar.
+* **Wireless Book Sync & Universal Converter:** Inspects books stored on the Kindle (over Wi-Fi via SSH or over USB) with instant search and file deletion. Accepts any book format (.epub, .fb2, .docx, .txt, .pdf), automatically converts via Calibre into Kindle-compatible formats (.mobi, .azw3), and deploys wirelessly with automatic Kindle library re-indexing.
+* **Full Bilingual Localization (RU / EN):** Instant one-click language toggle between Russian and English in the top bar — all labels, buttons, tooltips, and generated Kindle screens (clock, dashboard, tasks) dynamically adjust to the selected language.
 * **Firmware & AI Installer:** Automatically detects USB-connected Kindle storage and deploys AI chat binaries, scripts, and KUAL extensions in one click.
 
 ---
