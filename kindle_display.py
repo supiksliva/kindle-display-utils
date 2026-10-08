@@ -4,9 +4,9 @@ import subprocess
 import argparse
 import time
 
-X_RES = 1072
-Y_RES = 1448
-DISPLAY_COMMAND = "eips -g {}" 
+X_RES = 600
+Y_RES = 800
+DISPLAY_COMMAND = "/usr/sbin/eips -g {}" 
 OUTPUT_FILENAME = "display.png"
 DISPLAY_KEEPALIVE_ENABLE_COMMAND = "lipc-set-prop com.lab126.powerd preventScreenSaver 1"
 DISPLAY_KEEPALIVE_DISABLE_COMMAND = "lipc-set-prop com.lab126.powerd preventScreenSaver 0"
@@ -122,11 +122,11 @@ def display_image(input_path, ssh_server, crop=False, rotation=0, negative=False
     img.save(OUTPUT_FILENAME, 'PNG')
 
     # SCP the image to the Kindle
-    scp_command = f"scp {OUTPUT_FILENAME} {ssh_server}:~/{OUTPUT_FILENAME}"
+    scp_command = f"scp {OUTPUT_FILENAME} {ssh_server}:/tmp/root/display.png"
     subprocess.run(scp_command, shell=True, check=True)
 
     # SSH into the Kindle and run the display command
-    ssh_command = f"ssh {ssh_server} '{DISPLAY_COMMAND.format(OUTPUT_FILENAME + (" -v" if negative else "") + (" -f" if force_refresh else ""))}'"
+    ssh_command = f"ssh {ssh_server} {DISPLAY_COMMAND.format('/tmp/root/display.png')}"
     subprocess.run(ssh_command, shell=True, check=True)
 
     # Clean up the local processed image

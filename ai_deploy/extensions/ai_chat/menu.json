@@ -1,0 +1,10 @@
+{
+    "items": [
+        {
+            "name": "AI Chat (GLM-5.3)",
+            "priority": 1,
+            "action": "bin/run.sh",
+            "exitmenu": true
+        }
+    ]
+}

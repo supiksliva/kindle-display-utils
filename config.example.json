@@ -1,0 +1,7 @@
+{
+  "ip": "192.168.1.100",
+  "city": "Moscow",
+  "rotation": 270,
+  "api_key": "YOUR_POLZA_AI_KEY_HERE",
+  "model": "z-ai/glm-5.3-flash"
+}

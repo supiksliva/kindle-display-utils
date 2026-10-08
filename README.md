@@ -1,102 +1,160 @@
-# Kindle Display and Screen Streaming
+# 📖 Kindle Studio & Native AI Chat 🚀
 
-This project allows you to display images and stream your computer screen to a Kindle device. It consists of two main Python scripts that work together to process images and send them to the Kindle for display.
+> **Превратите ваш Amazon Kindle (Kindle Keyboard 3, 4, 5, Paperwhite) в умный E-Ink монитор, смарт-часы, рабочий дашборд и автономный терминал ИИ-помощника с русской слепой печатью!**
 
-## Features
+---
 
-- Display images on a Kindle device
-- Stream your computer screen to the Kindle in real-time
-- Image processing capabilities:
-  - Rotation
-  - Cropping
-  - Fitting to screen
-  - Negative display
-- Keep the Kindle display alive during streaming
+## 🌟 Что умеет этот проект?
 
-## Scripts
+### 1. 🖥️ Kindle Studio 2.0 (Десктопное приложение для ПК)
+* **📺 Стриминг экрана:** Передаёт экран вашего компьютера на дисплей Kindle в реальном времени (дополнительный E-Ink монитор для чтения кода, логов или документов без нагрузки на глаза).
+* **📊 Системный дашборд & Погода:** Выводит загрузку CPU, оперативной памяти, диска, скорость сети, прогноз погоды и календарь.
+* **🕒 Настольные смарт-часы:** Красивый полноэкранный циферблат с датой и погодой — идеальные прикроватные часы или тайм-трекер для рабочего стола.
+* **📝 Заметки и To-Do стикер:** Записывайте дела и отправляйте стикер с галочками прямо на экран читалки.
+* **🎨 Холст и Фотогалерея:** Рисование, фото-слайдшоу и качественный дизеринг (Floyd-Steinberg) для идеальной чёткости чёрно-белых фото.
+* **🚀 Встроенный мастер прошивки и установки:** Автоматически определяет подключенный по USB Kindle и устанавливает ИИ-чат и расширения в один клик!
 
-### 1. kindle_display.py
+---
 
-This script handles the core functionality of processing and displaying images on the Kindle.
+### 2. 🤖 Kindle AI Chat (Автономный ИИ прямо на читалке)
+* **Работает прямо на процессоре книги:** После установки компьютер не нужен — читалка подключается к Wi-Fi и общается с ИИ через API Polza.ai (модель `GLM-5.3 Flash`).
+* **Прямая отрисовка без терминальных костылей:** Нативный бинарник на Go пишет прямо во фреймбуфер читалки (`/dev/fb0`) с аппаратным E-Ink обновлением экрана.
+* **Высококонтрастный Dark Mode:** Чистый белый текст (`0x0F`) на глубоком чёрном фоне (`0x00`) — максимальная чёткость и контрастность Pearl E-Ink без размытых серых пикселей.
+* **Полная русская слепая печать (ЙЦУКЕН) на физической клавиатуре:**
+  * Кнопка **`SYM`** мгновенно переключает раскладку: `[RU]` $\leftrightarrow$ `[EN]`.
+  * Буквы `х`, `ъ`, `ж`, `э`, `б`, `ё` вводятся через зажатие или нажатие **`Alt`** (`Alt+P` = х, `Alt+O` = ъ, `Alt+L` = ж, `Alt+K` = э, `Alt+M` = б, `Alt+E` = ё).
+  * Знаки препинания: **двойной Пробел** ставит точку с пробелом (`. `), **`Alt + Пробел`** ставит запятую (`, `).
+  * Боковые кнопки перелистывания страниц прокручивают историю ответов ИИ вверх и вниз.
+  * Выход по кнопке **`HOME`** мгновенно возвращает книгу в домашнюю библиотеку.
 
-Key features:
-- Process images to fit the Kindle's display resolution (1072x1448)
-- Rotate, crop, or fit images as needed
-- Convert images to grayscale
-- Transfer processed images to the Kindle using SCP
-- Display images on the Kindle using the `eips` command
+---
 
-Usage:
+## 🛠️ Руководство: Джейлбрейк и установка на Kindle
+
+Если на вашей читалке ещё нет джейлбрейка, выполните эти шаги (инструкция проверена на **Kindle Keyboard 3 [K3W / K3G]**, а также применима для K4/K5):
+
+### Шаг 1. Джейлбрейк (Jailbreak)
+1. Подключите Kindle по USB к компьютеру.
+2. Скачайте архив джейлбрейка с [MobileRead Kindle Jailbreak](https://www.mobileread.com/forums/showthread.php?t=88004).
+3. Для Kindle 3 скопируйте файл обновления под вашу модель в корень книги (например, `update_jailbreak_0.13.N_k3w_install.bin`).
+4. Безопасно извлеките Kindle в Windows и отключите кабель.
+5. На Kindle нажмите: **`[Home]`** $\rightarrow$ **`[Menu]`** $\rightarrow$ **`Settings`** $\rightarrow$ снова **`[Menu]`** $\rightarrow$ **`Update Your Kindle`**.
+6. Устройство перезагрузится, и внизу экрана появится подтверждение: `Jailbreak succeeded!`.
+
+---
+
+### Шаг 2. Установка MKK и KUAL (Лаунчер приложений)
+1. Снова подключите Kindle по USB к компьютеру.
+2. Скопируйте файл обновления ключей разработчика MKK (например, `update_mkk_20141129_k3w_install.bin`) в корень книги и примените через `Settings` $\rightarrow$ `Update Your Kindle`.
+3. Скопируйте лаунчер **`KUAL-KDK-1.0.azw2`** в папку **`documents/`** на диске Kindle.
+4. Отключите книгу — в списке ваших книг появится приложение **`KUAL`**. Это универсальное меню для всех сторонних утилит!
+
+---
+
+### Шаг 3. Установка USBNetwork (для управления по сети и стриминга с ПК)
+1. Скопируйте файл `update_usbnetwork_..._k3w_install.bin` в корень и примените через `Update Your Kindle`.
+2. После установки в папке `usbnet/` на диске Kindle можно включить автозапуск SSH и Wi-Fi доступа.
+
+---
+
+## 🚀 Установка AI Chat на Kindle
+
+### Способ 1: В 1 клик через Kindle Studio (Рекомендуется)
+1. Подключите Kindle к компьютеру кабелем USB.
+2. Запустите на ПК **`Kindle_GUI.bat`** (или `python kindle_studio.py`).
+3. Перейдите во вкладку **«🚀 Прошивка & AI»**.
+4. Нажмите **«🔍 Найти Kindle (USB)»** — программа автоматически определит букву диска.
+5. В поле **API Ключ** вставьте ваш ключ от [Polza.ai](https://polza.ai).
+6. Нажмите **«📥 Установить AI Chat на Kindle»**.
+7. Программа скопирует бинарник, скрипты и расширение, а также пропишет ваш ключ в конфиг.
+8. Безопасно извлеките Kindle, откройте **KUAL** $\rightarrow$ **`AI Chat (GLM-5.3)`**. Готово!
+
+---
+
+### Способ 2: Вручную
+1. Скопируйте папку **`ai_deploy/ai`** в корень диска читалки (путь будет `/mnt/us/ai`).
+2. Скопируйте папку **`ai_deploy/extensions/ai_chat`** в `extensions/ai_chat` на читалке.
+3. Создайте файл `ai/config.json` на читалке со следующим содержимым:
+   ```json
+   {
+     "api_key": "ВАШ_КЛЮЧ_POLZA_AI",
+     "model": "z-ai/glm-5.3-flash"
+   }
+   ```
+4. Отключите Kindle, откройте **KUAL** $\rightarrow$ **`AI Chat (GLM-5.3)`**.
+
+---
+
+## ⌨️ Горячие клавиши в AI Chat на Kindle 3
+
+| Действие | Кнопка |
+| :--- | :--- |
+| **Смена раскладки (RU / EN)** | Кнопка **`SYM`** (индикатор в строке ввода: `[RU]` или `[EN]`) |
+| **Слепая печать (ЙЦУКЕН)** | `Q..P` $\rightarrow$ `й..з`, `A..L` $\rightarrow$ `ф..д`, `Z..M` $\rightarrow$ `я..ь`, `.` $\rightarrow$ **`ю`** |
+| **Буквы через Alt** | `Alt + P` = **х**, `Alt + O` = **ъ**, `Alt + L` = **ж**, `Alt + K` = **э**, `Alt + M` = **б**, `Alt + E` = **ё** |
+| **Точка** | Дважды быстро нажать **Пробел** (или `Alt + .`) |
+| **Запятая** | **`Alt + Пробел`** (сразу ставит запятую с пробелом `, `) |
+| **Вопросительный знак `?`** | `Shift + Alt + .` |
+| **Восклицательный знак `!`** | `Alt + A` |
+| **Дефис / тире `-`** | `Alt + Z` |
+| **Прокрутка текста ответов** | **Боковые кнопки страниц** читалки или стрелки джойстика **Вверх / Вниз** |
+| **Отправка сообщения** | Кнопка **`Enter`** |
+| **Новый диалог** | Команда `/new` |
+| **Выход в меню книг** | Физическая кнопка **`HOME`** или **`BACK`** |
+
+---
+
+## 💻 Использование Kindle Studio на компьютере
+
+### Запуск:
+Дважды кликните по файлу **`Kindle_GUI.bat`** (или в терминале: `python kindle_studio.py`).
+
+### Требования:
+* Python 3.9+
+* Библиотеки:
+  ```bash
+  pip install pillow requests mss psutil
+  ```
+
+### Настройка конфигурации (`config.json`):
+Скопируйте `config.example.json` в `config.json` и настройте под себя:
+```json
+{
+  "ip": "192.168.1.100",
+  "city": "Moscow",
+  "rotation": 270,
+  "api_key": "pza_...",
+  "model": "z-ai/glm-5.3-flash"
+}
 ```
-python kindle_display.py input_image ssh_server [options]
+
+---
+
+## 📁 Структура репозитория
+
+```text
+├── kindle_studio.py           # Главный графический интерфейс управления Kindle
+├── Kindle_GUI.bat             # Быстрый запуск студии на Windows
+├── kindle_chat_gui.go         # Исходный код нативного E-Ink чата на Go (raw Linux syscalls)
+├── font_data.go               # Встроенный бинарный русский/латинский шрифт 24px
+├── gen_font.py                # Генератор растрового шрифта из hex
+├── kindle-ai                  # Готовый скомпилированный бинарник под ARMv6 (Linux 2.6)
+├── ai_deploy/                 # Готовый пакет для установки на читалку (ai + KUAL extension)
+│   ├── ai/                    # Бинарник, скрипт запуска и фоновый воркер curl
+│   └── extensions/ai_chat/    # KUAL меню запуска AI Chat
+├── kindle_display.py          # Модуль подготовки и заливки графики на E-Ink
+├── kindle_stream.py           # Движок захвата и стриминга экрана ПК
+├── kindle_pic.py              # Обработчик изображений и дизеринга
+├── config.example.json        # Шаблон конфигурации
+└── README.md                  # Полная документация
 ```
 
-Options:
-- `-c, --crop`: Crop the image to fill the screen
-- `-n, --negative`: Display the image with negative colors
-- `-f, --force-refresh`: Force a refresh of the display
-- `-r, --rotate {0,1,2,3}`: Rotate the image (0: no rotation, 1: 90° CW, 2: 180°, 3: 270° CW)
+---
 
-### 2. screen_stream.py
+## 🔒 Безопасность
+Файл `config.json` с вашим локальным IP и личным ключом API автоматически исключён из репозитория через `.gitignore`. Никогда не публикуйте свои приватные ключи API в открытых источниках!
 
-This script captures your computer screen and streams it to the Kindle display.
+---
 
-Key features:
-- Capture screen using the `screencapture` command
-- Continuously send screen captures to the Kindle
-- Configurable server address, rotation, cropping, and display number
-
-Usage:
-```
-python screen_stream.py [options]
-```
-
-Options:
-- `--server`: Server name (default: root@192.168.15.244)
-- `--rotation {0,1,2,3}`: Rotation (0, 1, 2, or 3, default: 1)
-- `--crop`: Whether to crop the image (default: False)
-- `--display`: Display number to capture (default: 1)
-
-## Requirements
-
-- Python 3
-- Pillow (PIL) library
-- SSH access to your Kindle device
-- `screencapture` command (for screen streaming, typically available on macOS)
-
-## Setup
-
-1. Ensure you have SSH access to your Kindle device.
-2. Install the required Python libraries:
-   ```
-   pip install pillow
-   ```
-3. Configure your Kindle's IP address in the scripts or use the command-line options to specify it.
-
-## Usage
-
-1. To display a single image:
-   ```
-   python kindle_display.py path/to/image.jpg root@kindle_ip_address
-   ```
-
-2. To start screen streaming:
-   ```
-   python screen_stream.py
-   ```
-   You can customize the streaming options, for example:
-   ```
-   python screen_stream.py --server root@192.168.1.100 --rotation 2 --crop True --display 2
-   ```
-
-Note: You can stop the screen streaming by pressing Ctrl+C.
-
-## Troubleshooting
-
-- Ensure your Kindle is on the same network as your computer.
-- Verify that SSH access to your Kindle is properly set up.
-- Check that the Kindle's IP address is correct in your commands or script configurations.
-
-## Disclaimer
-
-This project is for personal use and experimentation. Be cautious when using it, as it involves modifying your Kindle's display behavior. Use at your own risk.
+## 📜 Лицензия
+MIT License. Создано для энтузиастов электронных книг и поклонников технологии E-Ink.

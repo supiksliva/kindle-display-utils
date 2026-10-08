@@ -1,9 +1,36 @@
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
 .venv/
-..*
+env/
+
+# Config & Secrets (Never commit personal IPs or API keys)
+config.json
+api_key.txt
+*.key
+*.pem
+
+# Backups & Temp files
+*.bak*
+_tmp_*
+*.log
+
+# Scratch test files
+test_*
+check_cache.py
+find_match.py
+fix_menus.py
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large generated media
+*.epub
+*.pickle/
 *.png
 *.jpg
 *.jpeg
-.vscode/
-*.epub
-*.pickle/
