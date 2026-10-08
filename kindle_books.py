@@ -320,7 +320,6 @@ def send_book_wifi(local_path, server=DEFAULT_IP, ssh_key=None, progress_callbac
         err_msg = f"Transfer failed: {err or 'Connection dropped'}" if lang == "en" else f"Ошибка передачи книги: {err or 'Сбой соединения'}"
         raise RuntimeError(err_msg)
 
-    trigger_kindle_rescan_ssh(server, ssh_key=ssh_key)
     return True
 
 
@@ -328,6 +327,7 @@ def trigger_kindle_rescan_ssh(server=DEFAULT_IP, ssh_key=None):
     """
     Triggers Kindle library rescan so new books appear immediately on the Kindle screen.
     Supports modern Kindles (via Pillow/scanner) and legacy Kindles (K3 Keyboard, K4, K2 via CVM refresh).
+    Safely resets framework crash watchdog counter so Kindle never enters full reboot.
     """
     if not ssh_key:
         ssh_key = SSH_KEY
@@ -336,7 +336,8 @@ def trigger_kindle_rescan_ssh(server=DEFAULT_IP, ssh_key=None):
         'if lipc-probe com.lab126.scanner >/dev/null 2>&1; then '
         'touch /mnt/us/documents; lipc-set-prop com.lab126.scanner rescan 1 >/dev/null 2>&1 || true; '
         'else '
-        'sync; killall -TERM cvm >/dev/null 2>&1 || true; '
+        'sync; rm -f /var/local/system/.framework_retries* /var/local/system/.framework_reboots* >/dev/null 2>&1 || true; '
+        'killall -TERM cvm >/dev/null 2>&1 || true; '
         'fi'
     )
     cmd_args = [
@@ -353,12 +354,16 @@ def trigger_kindle_rescan_ssh(server=DEFAULT_IP, ssh_key=None):
 
 
 def delete_book_wifi(rel_path, server=DEFAULT_IP, ssh_key=None, lang="ru"):
-    """Deletes a book and its accompanying .sdr cache folder from Kindle over Wi-Fi."""
+    """
+    Deletes a book and all associated files (.mbp, .sdr, .apnx, etc.) from Kindle over Wi-Fi.
+    Performs clean disk removal without triggering watchdog reboots.
+    """
     if not ssh_key:
         ssh_key = SSH_KEY
     ssh_target = get_ssh_target(server)
     remote_file = f"/mnt/us/documents/{rel_path}"
-    remote_sdr = f"/mnt/us/documents/{os.path.splitext(rel_path)[0]}.sdr"
+    base_no_ext = os.path.splitext(remote_file)[0]
+    rm_cmd = f'rm -rf "{remote_file}" "{base_no_ext}.sdr" "{base_no_ext}".*'
 
     cmd_args = [
         "ssh",
@@ -368,7 +373,7 @@ def delete_book_wifi(rel_path, server=DEFAULT_IP, ssh_key=None, lang="ru"):
         "-o", "LogLevel=ERROR",
         "-o", "ConnectTimeout=6",
         ssh_target,
-        f'rm -rf "{remote_file}" "{remote_sdr}"'
+        rm_cmd
     ]
     res = subprocess.run(
         cmd_args,
@@ -382,7 +387,6 @@ def delete_book_wifi(rel_path, server=DEFAULT_IP, ssh_key=None, lang="ru"):
         err_msg = f"Failed to delete book: {res.stderr.strip()}" if lang == "en" else f"Не удалось удалить книгу: {res.stderr.strip()}"
         raise RuntimeError(err_msg)
 
-    trigger_kindle_rescan_ssh(server, ssh_key=ssh_key)
     return True
 
 

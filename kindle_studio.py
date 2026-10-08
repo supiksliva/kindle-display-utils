@@ -2342,7 +2342,10 @@ class KindleStudioApp(tk.Tk):
                 def update_ok():
                     self.book_log_lbl.config(text=f"✅ {ok_msg}", fg="#006400")
                     self.set_status(ok_msg, fg="#006400")
-                    self.after(1500, self.action_refresh_books)
+                    self.cached_books = [b for b in self.cached_books if b["rel_path"] != rel_path]
+                    self._filter_books_list()
+                    total_bytes = sum(b["size_bytes"] for b in self.cached_books)
+                    self.books_count_lbl.config(text=self.tr("books_count", count=len(self.cached_books), size=kindle_books.format_size(total_bytes, lang=self.lang)))
 
                 self.after(0, update_ok)
             except Exception as e:
@@ -2449,6 +2452,11 @@ class KindleStudioApp(tk.Tk):
                 succ_text = self.tr("books_sent_success", count=success_count)
                 self.book_log_lbl.config(text=f"✅ {succ_text}", fg="#006400")
                 self.set_status(f"Uploaded {success_count} books" if self.lang == "en" else f"Книги успешно отправлены ({success_count} шт.)")
+                if mode == "wifi" and success_count > 0:
+                    try:
+                        kindle_books.trigger_kindle_rescan_ssh(srv)
+                    except Exception:
+                        pass
                 self.after(2000, self.action_refresh_books)
 
             self.after(0, finish_upload)
