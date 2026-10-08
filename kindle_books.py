@@ -16,6 +16,8 @@ import shutil
 import tempfile
 import subprocess
 
+WIN_NO_WINDOW = 0x08000000 if sys.platform == "win32" else 0
+
 DEFAULT_IP = "192.168.31.78"
 SSH_KEY = os.path.expanduser(r"~/.ssh/kindle_key")
 
@@ -103,7 +105,14 @@ def convert_book(input_path, target_format="mobi", progress_callback=None, lang=
     if target_format.lower() == "mobi":
         cmd.extend(["--mobi-file-type", "old"])
 
-    proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    proc = subprocess.run(
+        cmd,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        creationflags=WIN_NO_WINDOW
+    )
     if proc.returncode != 0:
         err = proc.stderr.strip() or proc.stdout.strip() or "Unknown Calibre error"
         raise RuntimeError(f"Calibre error:\n{err[:500]}")
@@ -192,7 +201,14 @@ def list_kindle_books_ssh(server=DEFAULT_IP, ssh_key=None, lang="ru"):
         "find /mnt/us/documents -type f -exec ls -l {} \\;"
     ]
 
-    res = subprocess.run(cmd_args, capture_output=True, text=True, errors="replace", timeout=12)
+    res = subprocess.run(
+        cmd_args,
+        capture_output=True,
+        text=True,
+        errors="replace",
+        timeout=12,
+        creationflags=WIN_NO_WINDOW
+    )
     if res.returncode != 0:
         err = res.stderr.strip()
         if "timed out" in err.lower():
@@ -271,7 +287,12 @@ def send_book_wifi(local_path, server=DEFAULT_IP, ssh_key=None, progress_callbac
         f'cat > "{remote_dest}"'
     ]
 
-    proc = subprocess.Popen(cmd_args, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+    proc = subprocess.Popen(
+        cmd_args,
+        stdin=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        creationflags=WIN_NO_WINDOW
+    )
 
     chunk_size = 64 * 1024
     sent_bytes = 0
@@ -304,21 +325,31 @@ def send_book_wifi(local_path, server=DEFAULT_IP, ssh_key=None, progress_callbac
 
 
 def trigger_kindle_rescan_ssh(server=DEFAULT_IP, ssh_key=None):
-    """Triggers Kindle content scanner so new books appear in Home library immediately."""
+    """
+    Triggers Kindle library rescan so new books appear immediately on the Kindle screen.
+    Supports modern Kindles (via Pillow/scanner) and legacy Kindles (K3 Keyboard, K4, K2 via CVM refresh).
+    """
     if not ssh_key:
         ssh_key = SSH_KEY
     ssh_target = get_ssh_target(server)
+    remote_cmd = (
+        'if lipc-probe com.lab126.scanner >/dev/null 2>&1; then '
+        'touch /mnt/us/documents; lipc-set-prop com.lab126.scanner rescan 1 >/dev/null 2>&1 || true; '
+        'else '
+        'sync; killall -TERM cvm >/dev/null 2>&1 || true; '
+        'fi'
+    )
     cmd_args = [
         "ssh",
         "-i", ssh_key,
         "-o", "StrictHostKeyChecking=no",
         "-o", "UserKnownHostsFile=/dev/null",
         "-o", "LogLevel=ERROR",
-        "-o", "ConnectTimeout=4",
+        "-o", "ConnectTimeout=5",
         ssh_target,
-        'touch /mnt/us/documents; lipc-set-prop com.lab126.scanner rescan 1 >/dev/null 2>&1 || true'
+        remote_cmd
     ]
-    subprocess.run(cmd_args, capture_output=True, timeout=5)
+    subprocess.run(cmd_args, capture_output=True, timeout=8, creationflags=WIN_NO_WINDOW)
 
 
 def delete_book_wifi(rel_path, server=DEFAULT_IP, ssh_key=None, lang="ru"):
@@ -339,7 +370,14 @@ def delete_book_wifi(rel_path, server=DEFAULT_IP, ssh_key=None, lang="ru"):
         ssh_target,
         f'rm -rf "{remote_file}" "{remote_sdr}"'
     ]
-    res = subprocess.run(cmd_args, capture_output=True, text=True, errors="replace", timeout=8)
+    res = subprocess.run(
+        cmd_args,
+        capture_output=True,
+        text=True,
+        errors="replace",
+        timeout=8,
+        creationflags=WIN_NO_WINDOW
+    )
     if res.returncode != 0:
         err_msg = f"Failed to delete book: {res.stderr.strip()}" if lang == "en" else f"Не удалось удалить книгу: {res.stderr.strip()}"
         raise RuntimeError(err_msg)

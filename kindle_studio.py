@@ -29,6 +29,7 @@ DEFAULT_IP = "192.168.31.78"
 DEFAULT_CITY = "Kirovo-Chepetsk"
 SSH_KEY = os.path.expanduser(r"~/.ssh/kindle_key")
 SSH_OPTS = f"-i {SSH_KEY} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=3"
+WIN_NO_WINDOW = 0x08000000 if sys.platform == "win32" else 0
 
 X_RES = 600
 Y_RES = 800
@@ -477,15 +478,15 @@ def send_image_to_kindle(img_pil, server=DEFAULT_IP, negative=False, rotation=0,
 
     img_proc.save(tmp_path, format="PNG")
 
-    scp_cmd = f"scp {SSH_OPTS} \"{tmp_path}\" {ssh_target}:/tmp/display.png"
-    res1 = subprocess.run(scp_cmd, shell=True, capture_output=True, text=True)
+    scp_args = ["scp"] + SSH_OPTS.split() + [tmp_path, f"{ssh_target}:/tmp/display.png"]
+    res1 = subprocess.run(scp_args, capture_output=True, text=True, creationflags=WIN_NO_WINDOW)
     if res1.returncode != 0:
         raise RuntimeError(f"SCP error: {res1.stderr.strip() or 'Connection failed'}")
 
-    ssh_cmd = f"ssh {SSH_OPTS} {ssh_target} \"/usr/sbin/eips -g /tmp/display.png\""
-    res2 = subprocess.run(ssh_cmd, shell=True, capture_output=True, text=True)
+    ssh_args = ["ssh"] + SSH_OPTS.split() + [ssh_target, "/usr/sbin/eips -g /tmp/display.png"]
+    res2 = subprocess.run(ssh_args, capture_output=True, text=True, creationflags=WIN_NO_WINDOW)
     if res2.returncode != 0:
-        raise RuntimeError(f"SSH error: {res2.stderr.strip() or 'Display failed'}")
+        raise RuntimeError(f"Display error: {res2.stderr.strip() or 'Display failed'}")
 
     try:
         os.remove(tmp_path)
@@ -494,14 +495,16 @@ def send_image_to_kindle(img_pil, server=DEFAULT_IP, negative=False, rotation=0,
 
 def clear_kindle(server=DEFAULT_IP):
     ssh_target = get_ssh_target(server)
-    res = subprocess.run(f"ssh {SSH_OPTS} {ssh_target} \"/usr/sbin/eips -c\"", shell=True, capture_output=True, text=True)
+    ssh_args = ["ssh"] + SSH_OPTS.split() + [ssh_target, "/usr/sbin/eips -c"]
+    res = subprocess.run(ssh_args, capture_output=True, text=True, creationflags=WIN_NO_WINDOW)
     if res.returncode != 0:
         raise RuntimeError(res.stderr.strip() or "Clear failed")
 
 def check_kindle_ping(server=DEFAULT_IP):
     ssh_target = get_ssh_target(server)
     t0 = time.time()
-    res = subprocess.run(f"ssh {SSH_OPTS} {ssh_target} \"echo PING_OK\"", shell=True, capture_output=True, text=True)
+    ssh_args = ["ssh"] + SSH_OPTS.split() + [ssh_target, "echo PING_OK"]
+    res = subprocess.run(ssh_args, capture_output=True, text=True, creationflags=WIN_NO_WINDOW)
     latency_ms = int((time.time() - t0) * 1000)
     return (res.returncode == 0 and "PING_OK" in res.stdout), latency_ms
 
@@ -2308,7 +2311,9 @@ class KindleStudioApp(tk.Tk):
     def action_delete_book(self):
         selected = self.books_tree.selection()
         if not selected:
-            messagebox.showinfo("Info" if self.lang == "en" else "Инфо", "Select a book from the list to delete." if self.lang == "en" else "Выберите книгу из списка для удаления.")
+            warn_msg = "Select a book from the list to delete." if self.lang == "en" else "Выберите книгу из списка для удаления."
+            self.book_log_lbl.config(text=f"⚠️ {warn_msg}", fg="#c9302c")
+            self.set_status(warn_msg, fg="#f48771")
             return
 
         rel_path = selected[0]
@@ -2321,6 +2326,7 @@ class KindleStudioApp(tk.Tk):
 
         mode = self.book_conn_mode.get()
         srv = self.ip_entry.get().strip() or DEFAULT_IP
+        self.book_log_lbl.config(text=f"⏳ Удаление '{book_name}'..." if self.lang == "ru" else f"⏳ Deleting '{book_name}'...", fg="#005a9e")
 
         def worker():
             try:
@@ -2332,24 +2338,43 @@ class KindleStudioApp(tk.Tk):
                         raise RuntimeError("Kindle not connected via USB!" if self.lang == "en" else "Kindle не подключен по USB!")
                     kindle_books.delete_book_usb(rel_path, drive)
 
+                ok_msg = self.tr("books_delete_ok", name=book_name)
                 def update_ok():
-                    messagebox.showinfo("Success" if self.lang == "en" else "Успех", self.tr("books_delete_ok", name=book_name))
-                    self.action_refresh_books()
+                    self.book_log_lbl.config(text=f"✅ {ok_msg}", fg="#006400")
+                    self.set_status(ok_msg, fg="#006400")
+                    self.after(1500, self.action_refresh_books)
 
                 self.after(0, update_ok)
             except Exception as e:
-                self.after(0, lambda err=e: messagebox.showerror("Error" if self.lang == "en" else "Ошибка", str(err)))
+                err_text = str(e)
+                self.after(0, lambda err=err_text: (
+                    self.book_log_lbl.config(text=f"⚠️ {err}", fg="#c9302c"),
+                    self.set_status(f"Error: {err}" if self.lang == "en" else f"Ошибка: {err}", fg="#f48771")
+                ))
 
         threading.Thread(target=worker, daemon=True).start()
 
     def action_rescan_library(self):
         srv = self.ip_entry.get().strip() or DEFAULT_IP
+        start_msg = "Refreshing Kindle library & screen..." if self.lang == "en" else "Обновление экрана библиотеки Kindle..."
+        self.set_status(start_msg, fg="#005a9e")
+        self.book_log_lbl.config(text=f"🔄 {start_msg}", fg="#005a9e")
+
         def worker():
             try:
                 kindle_books.trigger_kindle_rescan_ssh(srv)
-                self.after(0, lambda: self.set_status("Kindle display refreshed ✓" if self.lang == "en" else "Экран библиотеки Kindle пересканирован ✓", fg="#89d185"))
+                time.sleep(2)
+                ok_msg = "Kindle screen & library refreshed ✓" if self.lang == "en" else "Экран библиотеки Kindle перечитан и обновлен ✓"
+                self.after(0, lambda: (
+                    self.set_status(ok_msg, fg="#006400"),
+                    self.book_log_lbl.config(text=f"✅ {ok_msg}", fg="#006400"),
+                    self.action_refresh_books()
+                ))
             except Exception as e:
-                self.after(0, lambda err=e: self.set_status(f"Error: {err}" if self.lang == "en" else f"Ошибка: {err}", fg="#f48771"))
+                self.after(0, lambda err=e: (
+                    self.set_status(f"Error: {err}" if self.lang == "en" else f"Ошибка: {err}", fg="#f48771"),
+                    self.book_log_lbl.config(text=f"⚠️ {err}", fg="#c9302c")
+                ))
         threading.Thread(target=worker, daemon=True).start()
 
     def action_upload_books(self):
@@ -2373,7 +2398,9 @@ class KindleStudioApp(tk.Tk):
         skip_native = self.skip_native_var.get()
 
         if mode == "usb" and not drive:
-            messagebox.showerror("Error" if self.lang == "en" else "Ошибка", "Kindle not connected via USB!" if self.lang == "en" else "Kindle не подключен по USB!")
+            err_usb = "Kindle not connected via USB!" if self.lang == "en" else "Kindle не подключен по USB!"
+            self.book_log_lbl.config(text=f"⚠️ {err_usb}", fg="#c9302c")
+            self.set_status(err_usb, fg="#f48771")
             return
 
         total_files = len(files)
@@ -2417,12 +2444,14 @@ class KindleStudioApp(tk.Tk):
                     self.after(0, lambda f=fname, err=e: self.book_log_lbl.config(text=f"Error '{f}': {err}" if self.lang == "en" else f"Ошибка '{f}': {err}", fg="#c9302c"))
                     time.sleep(2)
 
-            self.after(0, lambda: (
-                self.book_progress.config(value=total_files),
-                self.book_log_lbl.config(text=self.tr("books_sent_success", count=success_count), fg="#006400"),
-                self.set_status(f"Uploaded {success_count} books" if self.lang == "en" else f"Книги успешно отправлены ({success_count} шт.)"),
-                self.action_refresh_books()
-            ))
+            def finish_upload():
+                self.book_progress.config(value=total_files)
+                succ_text = self.tr("books_sent_success", count=success_count)
+                self.book_log_lbl.config(text=f"✅ {succ_text}", fg="#006400")
+                self.set_status(f"Uploaded {success_count} books" if self.lang == "en" else f"Книги успешно отправлены ({success_count} шт.)")
+                self.after(2000, self.action_refresh_books)
+
+            self.after(0, finish_upload)
 
         threading.Thread(target=worker, daemon=True).start()
 
