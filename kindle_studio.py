@@ -45,6 +45,96 @@ WEEKDAYS_RU = [
     "ПОНЕДЕЛЬНИК", "ВТОРНИК", "СРЕДА", "ЧЕТВЕРГ", "ПЯТНИЦА", "СУББОТА", "ВОСКРЕСЕНЬЕ"
 ]
 
+I18N = {
+    "ru": {
+        "title": "Kindle Studio 2.0 - Стриминг, Монитор, Часы и Книги",
+        "tab_canvas": "🎨 Холст и Фото",
+        "tab_stream": "🖥️ Стриминг ПК",
+        "tab_dash": "📊 Дашборд ПК",
+        "tab_clock": "🕰️ Часы и Календарь",
+        "tab_todo": "📝 Заметки / To-Do",
+        "tab_books": "📚 Книги & Wi-Fi",
+        "tab_jb": "🚀 Прошивка & AI",
+        "ip_label": "Kindle IP:",
+        "btn_ping": "📶 Проверить связь",
+        "btn_send": "🚀 Отправить на Kindle",
+        "btn_clear": "⌫ Очистить экран",
+        "btn_shortcut": "📌 Ярлык на Рабочий стол",
+        "btn_lang": "🌐 English",
+        "ready": "Готов к работе",
+        "books_header": "KINDLE E-INK BOOKSHELF  •  БЕСПРОВОДНАЯ КНИЖНАЯ ПОЛКА",
+        "books_wifi_mode": "📶 Wi-Fi (SSH)",
+        "books_usb_mode": "🔌 USB Накопитель",
+        "books_refresh": "🔄 Обновить список книг",
+        "books_search": "🔍 Поиск по названию:",
+        "books_col_name": "Название книги / Файл",
+        "books_col_ext": "Формат",
+        "books_col_size": "Размер",
+        "books_delete": "🗑 Удалить выбранную книгу",
+        "books_rescan": "⚡ Обновить экран Kindle",
+        "books_upload_box": " 📤 Загрузка и автоконвертация книг по воздуху (Wi-Fi) ",
+        "books_pick_btn": "➕ Выбрать книги для отправки на Kindle...",
+        "books_target_fmt": "Целевой формат:",
+        "books_skip_native": "Не конвертировать родные форматы (MOBI, AZW3, PDF)",
+        "books_calibre_ok": "✅ Calibre ebook-convert готов",
+        "books_calibre_missing": "⚠️ Calibre не найден (только прямая отправка MOBI/PDF)",
+        "books_waiting": "Выберите книги на ПК для отправки на читалку...",
+        "books_count": "Книг на читалке: {count} (Всего: {size})",
+        "books_delete_confirm": "Удалить книгу '{name}' с читалки Kindle?",
+        "books_delete_ok": "Книга '{name}' успешно удалена с Kindle.",
+        "books_wake_hint": "Разбудите читалку (сдвиньте ползунок включения), чтобы активировать Wi-Fi.",
+        "books_sent_success": "✓ Все книги успешно загружены на Kindle ({count} шт.)!",
+        "books_offline": "🔴 Офлайн (сдвиньте ползунок включения)",
+        "books_online": "🟢 В сети (Wi-Fi)",
+        "books_usb_online": "🔌 Подключен (USB {drive})",
+        "books_loading": "● Чтение списка книг...",
+    },
+    "en": {
+        "title": "Kindle Studio 2.0 - Screen Streamer, Monitor, Clock & Books",
+        "tab_canvas": "🎨 Canvas & Photo",
+        "tab_stream": "🖥️ PC Stream",
+        "tab_dash": "📊 PC Dashboard",
+        "tab_clock": "🕰️ Clock & Calendar",
+        "tab_todo": "📝 Notes / To-Do",
+        "tab_books": "📚 Books & Wi-Fi",
+        "tab_jb": "🚀 Firmware & AI",
+        "ip_label": "Kindle IP:",
+        "btn_ping": "📶 Ping Test",
+        "btn_send": "🚀 Send to Kindle",
+        "btn_clear": "⌫ Clear Screen",
+        "btn_shortcut": "📌 Desktop Shortcut",
+        "btn_lang": "🌐 Русский",
+        "ready": "Ready",
+        "books_header": "KINDLE E-INK BOOKSHELF  •  WIRELESS BOOK MANAGER",
+        "books_wifi_mode": "📶 Wi-Fi (SSH)",
+        "books_usb_mode": "🔌 USB Storage",
+        "books_refresh": "🔄 Refresh Book List",
+        "books_search": "🔍 Search by title:",
+        "books_col_name": "Book Title / Filename",
+        "books_col_ext": "Format",
+        "books_col_size": "Size",
+        "books_delete": "🗑 Delete Selected Book",
+        "books_rescan": "⚡ Rescan Kindle Display",
+        "books_upload_box": " 📤 Wireless Book Upload & Auto-Conversion ",
+        "books_pick_btn": "➕ Choose Books to Send to Kindle...",
+        "books_target_fmt": "Target format:",
+        "books_skip_native": "Skip conversion for native formats (MOBI, AZW3, PDF)",
+        "books_calibre_ok": "✅ Calibre ebook-convert ready",
+        "books_calibre_missing": "⚠️ Calibre not found (native MOBI/PDF transfer only)",
+        "books_waiting": "Select books on PC to send wirelessly to Kindle...",
+        "books_count": "Books on Kindle: {count} (Total: {size})",
+        "books_delete_confirm": "Delete book '{name}' from Kindle?",
+        "books_delete_ok": "Book '{name}' successfully deleted from Kindle.",
+        "books_wake_hint": "Wake your Kindle (slide power switch) to enable Wi-Fi.",
+        "books_sent_success": "✓ All books successfully uploaded to Kindle ({count} pcs)!",
+        "books_offline": "🔴 Offline (wake Kindle screen)",
+        "books_online": "🟢 Online (Wi-Fi)",
+        "books_usb_online": "🔌 Connected (USB {drive})",
+        "books_loading": "● Loading book list...",
+    }
+}
+
+
 def load_config():
     if os.path.exists(CONFIG_FILE):
         try:
@@ -550,12 +640,13 @@ def generate_todo_note(title="СПИСОК ДЕЛ", text_items="", w=X_RES, h=Y_
 class KindleStudioApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Kindle Studio 2.0 - Screen Streamer, Monitor, Clock & Canvas")
-        self.geometry("1060x700")
-        self.minsize(980, 640)
+        self.cfg = load_config()
+        self.lang = self.cfg.get("lang", "ru")
+        self.title(self.tr("title"))
+        self.geometry("1160x780")
+        self.minsize(1040, 700)
         self.configure(bg="#1e1e1e")
 
-        self.cfg = load_config()
         self.rotation = self.cfg.get("rotation", 0) # 0, 90, 180, 270
 
         # In-memory canvas image
@@ -596,30 +687,35 @@ class KindleStudioApp(tk.Tk):
         top_bar = tk.Frame(self, bg="#252526", pady=8, padx=12)
         top_bar.pack(side="top", fill="x")
 
-        tk.Label(top_bar, text="Kindle IP:", fg="#ffffff", bg="#252526", font=("Segoe UI", 9, "bold")).pack(side="left")
+        self.lbl_ip = tk.Label(top_bar, text=self.tr("ip_label"), fg="#ffffff", bg="#252526", font=("Segoe UI", 9, "bold"))
+        self.lbl_ip.pack(side="left")
         self.ip_entry = tk.Entry(top_bar, width=15, font=("Consolas", 10), bg="#333337", fg="#ffffff", insertbackground="white")
         self.ip_entry.insert(0, self.cfg.get("ip", DEFAULT_IP))
         self.ip_entry.pack(side="left", padx=(5, 10))
 
-        self.btn_ping = tk.Button(top_bar, text="📶 Проверить связь", bg="#3a3d41", fg="white", relief="flat", padx=6, command=self.action_ping_kindle)
+        self.btn_ping = tk.Button(top_bar, text=self.tr("btn_ping"), bg="#3a3d41", fg="white", relief="flat", padx=6, command=self.action_ping_kindle)
         self.btn_ping.pack(side="left", padx=3)
 
-        self.ping_status_lbl = tk.Label(top_bar, text="● Проверка...", fg="#aaaaaa", bg="#252526", font=("Segoe UI", 8))
-        self.ping_status_lbl.pack(side="left", padx=(4, 15))
+        self.ping_status_lbl = tk.Label(top_bar, text="● ...", fg="#aaaaaa", bg="#252526", font=("Segoe UI", 8))
+        self.ping_status_lbl.pack(side="left", padx=(4, 12))
 
-        self.btn_send = tk.Button(top_bar, text="🚀 Отправить на Kindle", bg="#0e639c", fg="white", font=("Segoe UI", 9, "bold"),
+        self.btn_send = tk.Button(top_bar, text=self.tr("btn_send"), bg="#0e639c", fg="white", font=("Segoe UI", 9, "bold"),
                                   padx=12, pady=3, relief="flat", command=self.action_send_now)
         self.btn_send.pack(side="left", padx=4)
 
-        self.btn_clear_screen = tk.Button(top_bar, text="⌫ Очистить экран", bg="#3a3d41", fg="white", relief="flat",
+        self.btn_clear_screen = tk.Button(top_bar, text=self.tr("btn_clear"), bg="#3a3d41", fg="white", relief="flat",
                                           padx=8, command=self.action_clear_kindle)
         self.btn_clear_screen.pack(side="left", padx=4)
 
-        self.btn_shortcut = tk.Button(top_bar, text="📌 Ярлык на Рабочий стол", bg="#3a3d41", fg="#cccccc", relief="flat",
+        self.btn_shortcut = tk.Button(top_bar, text=self.tr("btn_shortcut"), bg="#3a3d41", fg="#cccccc", relief="flat",
                                       font=("Segoe UI", 8), command=self.action_create_desktop_shortcut)
-        self.btn_shortcut.pack(side="left", padx=6)
+        self.btn_shortcut.pack(side="left", padx=4)
 
-        self.status_lbl = tk.Label(top_bar, text="Готов к работе", fg="#89d185", bg="#252526", font=("Segoe UI", 9))
+        self.btn_lang = tk.Button(top_bar, text=self.tr("btn_lang"), bg="#0e639c", fg="#ffffff", relief="flat",
+                                  font=("Segoe UI", 8, "bold"), padx=8, command=self.action_toggle_language)
+        self.btn_lang.pack(side="left", padx=6)
+
+        self.status_lbl = tk.Label(top_bar, text=self.tr("ready"), fg="#89d185", bg="#252526", font=("Segoe UI", 9))
         self.status_lbl.pack(side="right")
 
         # 2. Main Content (Left: Tabs with controls, Right: Interactive Screen Preview)
@@ -632,9 +728,11 @@ class KindleStudioApp(tk.Tk):
         style.configure("TNotebook", background="#1e1e1e", borderwidth=0)
         style.configure("TNotebook.Tab", background="#2d2d30", foreground="#cccccc", padding=[10, 5], font=("Segoe UI", 9, "bold"))
         style.map("TNotebook.Tab", background=[("selected", "#0e639c")], foreground=[("selected", "#ffffff")])
-        style.configure("Treeview", background="#252526", foreground="#ffffff", fieldbackground="#252526", rowheight=24)
-        style.configure("Treeview.Heading", background="#333337", foreground="#ffffff", font=("Segoe UI", 9, "bold"))
-        style.map("Treeview", background=[("selected", "#0e639c")], foreground=[("selected", "#ffffff")])
+
+        # Authentic E-Ink High Contrast Treeview
+        style.configure("Treeview", background="#ffffff", foreground="#000000", fieldbackground="#ffffff", rowheight=34, font=("Segoe UI", 11))
+        style.configure("Treeview.Heading", background="#222222", foreground="#ffffff", font=("Segoe UI", 11, "bold"), padding=[4, 6])
+        style.map("Treeview", background=[("selected", "#005a9e")], foreground=[("selected", "#ffffff")])
 
         self.notebook = ttk.Notebook(main_frame)
         self.notebook.pack(side="left", fill="both", expand=True, padx=(0, 10))
@@ -851,155 +949,134 @@ class KindleStudioApp(tk.Tk):
         btn_render_todo.pack(fill="x", pady=3)
 
     # -------------------------------------------------------------------------
-    # TAB: BOOKS & WI-FI LIBRARY SERVER
+    # TAB: BOOKS & WIRELESS SYNC (E-INK STYLE)
     # -------------------------------------------------------------------------
     def _build_tab_books(self):
-        tab = tk.Frame(self.notebook, bg="#252526", padx=12, pady=12)
-        self.notebook.add(tab, text="📚 Книги & Wi-Fi")
+        tab = tk.Frame(self.notebook, bg="#1e1e1e", padx=10, pady=10)
+        self.notebook.add(tab, text=self.tr("tab_books"))
 
-        # Top connection bar
-        top_frame = tk.Frame(tab, bg="#252526")
-        top_frame.pack(fill="x", pady=(0, 8))
+        # Outer E-Ink styled display card
+        eink_card = tk.Frame(tab, bg="#f5f4ef", bd=2, relief="solid")
+        eink_card.pack(fill="both", expand=True)
 
-        self.book_conn_mode = tk.StringVar(value="wifi")
-        rb_wifi = tk.Radiobutton(top_frame, text="📶 Wi-Fi (SSH)", variable=self.book_conn_mode, value="wifi",
-                                 fg="white", bg="#252526", selectcolor="#0e639c", activebackground="#252526",
-                                 font=("Segoe UI", 9, "bold"), command=self.action_refresh_books)
-        rb_wifi.pack(side="left", padx=(0, 6))
+        # 1. Kindle Header Bar (Retro E-Ink status style)
+        header_bar = tk.Frame(eink_card, bg="#111111", pady=8, padx=14)
+        header_bar.pack(fill="x")
 
-        rb_usb = tk.Radiobutton(top_frame, text="🔌 USB Накопитель", variable=self.book_conn_mode, value="usb",
-                                fg="white", bg="#252526", selectcolor="#0e639c", activebackground="#252526",
-                                font=("Segoe UI", 9, "bold"), command=self.action_refresh_books)
-        rb_usb.pack(side="left", padx=(0, 10))
+        self.books_header_lbl = tk.Label(header_bar, text=self.tr("books_header"), fg="#ffffff", bg="#111111", font=("Segoe UI", 11, "bold"))
+        self.books_header_lbl.pack(side="left")
 
-        btn_refresh = tk.Button(top_frame, text="🔄 Обновить список", bg="#3a3d41", fg="white", relief="flat",
-                                font=("Segoe UI", 9), padx=8, command=self.action_refresh_books)
-        btn_refresh.pack(side="left", padx=(0, 8))
-
-        self.books_status_badge = tk.Label(top_frame, text="● Нажмите 'Обновить список'", fg="#aaaaaa", bg="#252526", font=("Segoe UI", 8))
-        self.books_status_badge.pack(side="left")
-
-        self.books_count_lbl = tk.Label(top_frame, text="Книг: 0", fg="#89d185", bg="#252526", font=("Segoe UI", 9, "bold"))
+        self.books_count_lbl = tk.Label(header_bar, text=self.tr("books_count", count=0, size="0 МБ"), fg="#ffffff", bg="#111111", font=("Segoe UI", 10, "bold"))
         self.books_count_lbl.pack(side="right")
 
-        # Upper frame: Kindle books explorer
-        catalog_box = tk.LabelFrame(tab, text=" 📖 Книги на читалке (/mnt/us/documents) ", fg="#ffffff", bg="#252526", padx=8, pady=6)
-        catalog_box.pack(fill="both", expand=True, pady=(0, 8))
+        # 2. Control & Connection Bar
+        ctrl_bar = tk.Frame(eink_card, bg="#eae8e1", pady=8, padx=14, bd=1, relief="solid")
+        ctrl_bar.pack(fill="x")
 
-        # Search bar
-        search_row = tk.Frame(catalog_box, bg="#252526")
-        search_row.pack(fill="x", pady=(0, 4))
-        tk.Label(search_row, text="🔍 Поиск по названию:", fg="#cccccc", bg="#252526", font=("Segoe UI", 8)).pack(side="left", padx=(0, 6))
+        self.book_conn_mode = tk.StringVar(value="wifi")
+        self.rb_wifi = tk.Radiobutton(ctrl_bar, text=self.tr("books_wifi_mode"), variable=self.book_conn_mode, value="wifi",
+                                      fg="#000000", bg="#eae8e1", selectcolor="#ffffff", activebackground="#eae8e1",
+                                      font=("Segoe UI", 10, "bold"), command=self.action_refresh_books)
+        self.rb_wifi.pack(side="left", padx=(0, 10))
+
+        self.rb_usb = tk.Radiobutton(ctrl_bar, text=self.tr("books_usb_mode"), variable=self.book_conn_mode, value="usb",
+                                     fg="#000000", bg="#eae8e1", selectcolor="#ffffff", activebackground="#eae8e1",
+                                     font=("Segoe UI", 10, "bold"), command=self.action_refresh_books)
+        self.rb_usb.pack(side="left", padx=(0, 16))
+
+        self.btn_books_refresh = tk.Button(ctrl_bar, text=self.tr("books_refresh"), bg="#111111", fg="#ffffff", relief="flat",
+                                           font=("Segoe UI", 10, "bold"), padx=12, pady=4, command=self.action_refresh_books)
+        self.btn_books_refresh.pack(side="left", padx=(0, 12))
+
+        self.books_status_badge = tk.Label(ctrl_bar, text=self.tr("books_loading"), fg="#555555", bg="#eae8e1", font=("Segoe UI", 10, "bold"))
+        self.books_status_badge.pack(side="left")
+
+        # 3. Main Center: E-Ink Book Catalog (Large table)
+        catalog_frame = tk.Frame(eink_card, bg="#f5f4ef", padx=14, pady=10)
+        catalog_frame.pack(fill="both", expand=True)
+
+        # Search row
+        search_row = tk.Frame(catalog_frame, bg="#f5f4ef")
+        search_row.pack(fill="x", pady=(0, 8))
+
+        self.books_search_lbl = tk.Label(search_row, text=self.tr("books_search"), fg="#000000", bg="#f5f4ef", font=("Segoe UI", 11, "bold"))
+        self.books_search_lbl.pack(side="left", padx=(0, 8))
+
         self.book_search_var = tk.StringVar()
         self.book_search_var.trace_add("write", lambda *a: self._filter_books_list())
-        search_entry = tk.Entry(search_row, textvariable=self.book_search_var, bg="#333337", fg="white", insertbackground="white")
-        search_entry.pack(side="left", fill="x", expand=True)
+        self.search_entry = tk.Entry(search_row, textvariable=self.book_search_var, bg="#ffffff", fg="#000000",
+                                     font=("Segoe UI", 11), insertbackground="black", bd=1, relief="solid")
+        self.search_entry.pack(side="left", fill="x", expand=True)
 
-        # Treeview with scrollbar
-        tree_frame = tk.Frame(catalog_box, bg="#252526")
-        tree_frame.pack(fill="both", expand=True)
+        # Big Treeview table
+        tree_container = tk.Frame(catalog_frame, bg="#ffffff", bd=1, relief="solid")
+        tree_container.pack(fill="both", expand=True)
 
-        self.books_tree = ttk.Treeview(tree_frame, columns=("name", "ext", "size"), show="headings", selectmode="browse", height=7)
-        self.books_tree.heading("name", text="Название / Файл", anchor="w")
-        self.books_tree.heading("ext", text="Формат", anchor="center")
-        self.books_tree.heading("size", text="Размер", anchor="e")
+        self.books_tree = ttk.Treeview(tree_container, columns=("name", "ext", "size"), show="headings", selectmode="browse", height=9)
+        self.books_tree.heading("name", text=self.tr("books_col_name"), anchor="w")
+        self.books_tree.heading("ext", text=self.tr("books_col_ext"), anchor="center")
+        self.books_tree.heading("size", text=self.tr("books_col_size"), anchor="e")
 
-        self.books_tree.column("name", width=380, stretch=True)
-        self.books_tree.column("ext", width=70, anchor="center")
-        self.books_tree.column("size", width=80, anchor="e")
+        self.books_tree.column("name", width=440, stretch=True)
+        self.books_tree.column("ext", width=90, anchor="center")
+        self.books_tree.column("size", width=110, anchor="e")
 
-        sb = ttk.Scrollbar(tree_frame, orient="vertical", command=self.books_tree.yview)
+        sb = ttk.Scrollbar(tree_container, orient="vertical", command=self.books_tree.yview)
         self.books_tree.configure(yscrollcommand=sb.set)
         self.books_tree.pack(side="left", fill="both", expand=True)
         sb.pack(side="right", fill="y")
 
-        # Tree actions
-        tree_actions = tk.Frame(catalog_box, bg="#252526")
-        tree_actions.pack(fill="x", pady=(4, 0))
+        # Catalog Actions row
+        cat_acts = tk.Frame(catalog_frame, bg="#f5f4ef")
+        cat_acts.pack(fill="x", pady=(8, 0))
 
-        btn_del = tk.Button(tree_actions, text="🗑 Удалить выбранную книгу", bg="#d9534f", fg="white", relief="flat",
-                            font=("Segoe UI", 8, "bold"), padx=6, command=self.action_delete_book)
-        btn_del.pack(side="left", padx=(0, 6))
+        self.btn_delete_book = tk.Button(cat_acts, text=self.tr("books_delete"), bg="#c9302c", fg="#ffffff", relief="flat",
+                                         font=("Segoe UI", 10, "bold"), padx=10, pady=4, command=self.action_delete_book)
+        self.btn_delete_book.pack(side="left", padx=(0, 10))
 
-        btn_rescan = tk.Button(tree_actions, text="⚡ Пересканировать экран Kindle", bg="#3a3d41", fg="white", relief="flat",
-                               font=("Segoe UI", 8), padx=6, command=self.action_rescan_library)
-        btn_rescan.pack(side="left")
+        self.btn_rescan_display = tk.Button(cat_acts, text=self.tr("books_rescan"), bg="#3a3d41", fg="#ffffff", relief="flat",
+                                            font=("Segoe UI", 10), padx=10, pady=4, command=self.action_rescan_library)
+        self.btn_rescan_display.pack(side="left")
 
-        # Bottom section: 2 columns (Left: Upload & Convert, Right: Web Server)
-        bottom_row = tk.Frame(tab, bg="#252526")
-        bottom_row.pack(fill="x")
+        # 4. Bottom Section: Upload & Auto-Convert Box
+        self.up_box = tk.LabelFrame(eink_card, text=self.tr("books_upload_box"), fg="#000000", bg="#eae8e1", bd=1, relief="solid",
+                                    font=("Segoe UI", 10, "bold"), padx=12, pady=10)
+        self.up_box.pack(fill="x", padx=14, pady=(0, 12))
 
-        # Left Column: Upload & Convert
-        up_box = tk.LabelFrame(bottom_row, text=" 📤 Загрузка & Автоконвертация на Kindle ", fg="#ffffff", bg="#252526", padx=8, pady=6)
-        up_box.pack(side="left", fill="both", expand=True, padx=(0, 4))
+        # Big prominent upload button
+        self.btn_pick_books = tk.Button(self.up_box, text=self.tr("books_pick_btn"), bg="#0e639c", fg="#ffffff", relief="flat",
+                                        font=("Segoe UI", 11, "bold"), pady=6, command=self.action_upload_books)
+        self.btn_pick_books.pack(fill="x", pady=(0, 6))
 
-        btn_pick = tk.Button(up_box, text="➕ Выбрать книги для отправки...", bg="#0e639c", fg="white", relief="flat",
-                             font=("Segoe UI", 9, "bold"), pady=3, command=self.action_upload_books)
-        btn_pick.pack(fill="x", pady=(0, 4))
+        # Format options row
+        fmt_bar = tk.Frame(self.up_box, bg="#eae8e1")
+        fmt_bar.pack(fill="x", pady=(0, 4))
 
-        fmt_row = tk.Frame(up_box, bg="#252526")
-        fmt_row.pack(fill="x", pady=2)
-        tk.Label(fmt_row, text="Целевой формат:", fg="#cccccc", bg="#252526", font=("Segoe UI", 8, "bold")).pack(side="left")
+        self.lbl_target_fmt = tk.Label(fmt_bar, text=self.tr("books_target_fmt"), fg="#000000", bg="#eae8e1", font=("Segoe UI", 10, "bold"))
+        self.lbl_target_fmt.pack(side="left", padx=(0, 6))
+
         self.book_target_fmt = tk.StringVar(value="mobi")
-        tk.Radiobutton(fmt_row, text="MOBI", variable=self.book_target_fmt, value="mobi", fg="white", bg="#252526",
-                       selectcolor="#0e639c", activebackground="#252526", font=("Segoe UI", 8)).pack(side="left", padx=3)
-        tk.Radiobutton(fmt_row, text="AZW3", variable=self.book_target_fmt, value="azw3", fg="white", bg="#252526",
-                       selectcolor="#0e639c", activebackground="#252526", font=("Segoe UI", 8)).pack(side="left", padx=3)
-
-        self.skip_native_var = tk.BooleanVar(value=True)
-        cb_skip = tk.Checkbutton(up_box, text="Без конвертации, если формат уже MOBI/AZW3/PDF", variable=self.skip_native_var,
-                                 fg="#aaaaaa", bg="#252526", selectcolor="#333337", activebackground="#252526", font=("Segoe UI", 7))
-        cb_skip.pack(anchor="w", pady=(0, 2))
+        tk.Radiobutton(fmt_bar, text="MOBI (Kindle Keyboard / PW)", variable=self.book_target_fmt, value="mobi",
+                       fg="#000000", bg="#eae8e1", selectcolor="#ffffff", activebackground="#eae8e1", font=("Segoe UI", 10, "bold")).pack(side="left", padx=4)
+        tk.Radiobutton(fmt_bar, text="AZW3 (KF8)", variable=self.book_target_fmt, value="azw3",
+                       fg="#000000", bg="#eae8e1", selectcolor="#ffffff", activebackground="#eae8e1", font=("Segoe UI", 10, "bold")).pack(side="left", padx=4)
 
         conv_bin = kindle_books.find_calibre_converter()
-        conv_text = "✅ Calibre ebook-convert готов" if conv_bin else "⚠️ Calibre не найден"
-        conv_fg = "#89d185" if conv_bin else "#f48771"
-        self.calibre_status_lbl = tk.Label(up_box, text=conv_text, fg=conv_fg, bg="#252526", font=("Segoe UI", 7))
-        self.calibre_status_lbl.pack(anchor="w")
+        conv_text = self.tr("books_calibre_ok") if conv_bin else self.tr("books_calibre_missing")
+        conv_fg = "#006400" if conv_bin else "#8b0000"
+        self.calibre_status_lbl = tk.Label(fmt_bar, text=conv_text, fg=conv_fg, bg="#eae8e1", font=("Segoe UI", 9, "bold"))
+        self.calibre_status_lbl.pack(side="right")
 
-        self.book_progress = ttk.Progressbar(up_box, mode="determinate")
-        self.book_progress.pack(fill="x", pady=(3, 2))
+        self.skip_native_var = tk.BooleanVar(value=True)
+        self.cb_skip_native = tk.Checkbutton(self.up_box, text=self.tr("books_skip_native"), variable=self.skip_native_var,
+                                             fg="#222222", bg="#eae8e1", selectcolor="#ffffff", activebackground="#eae8e1", font=("Segoe UI", 9))
+        self.cb_skip_native.pack(anchor="w", pady=(0, 4))
 
-        self.book_log_lbl = tk.Label(up_box, text="Ожидание выбора книг...", fg="#888888", bg="#252526", font=("Segoe UI", 7), wraplength=250, justify="left")
+        self.book_progress = ttk.Progressbar(self.up_box, mode="determinate")
+        self.book_progress.pack(fill="x", pady=(2, 4))
+
+        self.book_log_lbl = tk.Label(self.up_box, text=self.tr("books_waiting"), fg="#333333", bg="#eae8e1", font=("Segoe UI", 10, "bold"), wraplength=650, justify="left")
         self.book_log_lbl.pack(anchor="w")
-
-        # Right Column: Web Server
-        srv_box = tk.LabelFrame(bottom_row, text=" 🌐 Книжный Веб-Сервер ", fg="#ffffff", bg="#252526", padx=8, pady=6)
-        srv_box.pack(side="right", fill="both", expand=True, padx=(4, 0))
-
-        local_ip = kindle_books.get_local_ip()
-        self.server_url_str = f"http://{local_ip}:8080/"
-
-        srv_top = tk.Frame(srv_box, bg="#252526")
-        srv_top.pack(fill="x", pady=(0, 2))
-        self.server_status_badge = tk.Label(srv_top, text="⚪ Сервер выключен", fg="#aaaaaa", bg="#252526", font=("Segoe UI", 8, "bold"))
-        self.server_status_badge.pack(side="left")
-
-        self.btn_toggle_server = tk.Button(srv_box, text="▶ Запустить сервер книг", bg="#28a745", fg="white", relief="flat",
-                                           font=("Segoe UI", 8, "bold"), pady=2, command=self.action_toggle_book_server)
-        self.btn_toggle_server.pack(fill="x", pady=(0, 3))
-
-        url_row = tk.Frame(srv_box, bg="#252526")
-        url_row.pack(fill="x", pady=2)
-        self.url_entry = tk.Entry(url_row, bg="#333337", fg="#89d185", font=("Consolas", 8), relief="flat")
-        self.url_entry.insert(0, self.server_url_str)
-        self.url_entry.config(state="readonly")
-        self.url_entry.pack(side="left", fill="x", expand=True)
-
-        btn_copy = tk.Button(url_row, text="📋", bg="#3a3d41", fg="white", relief="flat", font=("Segoe UI", 8),
-                             command=self.action_copy_server_url)
-        btn_copy.pack(side="right", padx=(2, 0))
-
-        srv_btns = tk.Frame(srv_box, bg="#252526")
-        srv_btns.pack(fill="x", pady=2)
-        tk.Button(srv_btns, text="🌐 В браузере", bg="#3a3d41", fg="white", relief="flat", font=("Segoe UI", 7),
-                  command=self.action_open_server_browser).pack(side="left", expand=True, fill="x", padx=(0, 2))
-        tk.Button(srv_btns, text="📂 Папка книг", bg="#3a3d41", fg="white", relief="flat", font=("Segoe UI", 7),
-                  command=self.action_open_library_folder).pack(side="right", expand=True, fill="x", padx=(2, 0))
-
-        srv_tip = tk.Label(srv_box, text="Откройте http://... в браузере Kindle для скачивания или на смартфоне для отправки книг.",
-                           fg="#89d185", bg="#252526", font=("Segoe UI", 7), wraplength=230, justify="left")
-        srv_tip.pack(fill="x", pady=(2, 0))
 
     # -------------------------------------------------------------------------
     # TAB: JAILBREAK & EXTENSIONS INSTALLER
@@ -1656,41 +1733,102 @@ class KindleStudioApp(tk.Tk):
     # -------------------------------------------------------------------------
     # BOOKS & WI-FI LIBRARY ACTIONS
     # -------------------------------------------------------------------------
+    def tr(self, key, **kwargs):
+        text = I18N.get(self.lang, {}).get(key, I18N["ru"].get(key, key))
+        if kwargs:
+            try:
+                text = text.format(**kwargs)
+            except Exception:
+                pass
+        return text
+
+    def action_toggle_language(self):
+        self.lang = "en" if self.lang == "ru" else "ru"
+        self.cfg["lang"] = self.lang
+        save_config(self.cfg)
+        self._apply_language()
+
+    def _apply_language(self):
+        self.title(self.tr("title"))
+        self.lbl_ip.config(text=self.tr("ip_label"))
+        self.btn_lang.config(text=self.tr("btn_lang"))
+        self.btn_send.config(text=self.tr("btn_send"))
+        self.btn_clear_screen.config(text=self.tr("btn_clear"))
+        self.btn_shortcut.config(text=self.tr("btn_shortcut"))
+        self.btn_ping.config(text=self.tr("btn_ping"))
+        self.status_lbl.config(text=self.tr("ready"))
+
+        tab_names = [
+            self.tr("tab_canvas"),
+            self.tr("tab_stream"),
+            self.tr("tab_dash"),
+            self.tr("tab_clock"),
+            self.tr("tab_todo"),
+            self.tr("tab_books"),
+            self.tr("tab_jb"),
+        ]
+        for idx, tname in enumerate(tab_names):
+            try:
+                self.notebook.tab(idx, text=tname)
+            except Exception:
+                pass
+
+        if hasattr(self, "books_header_lbl"):
+            self.books_header_lbl.config(text=self.tr("books_header"))
+            self.rb_wifi.config(text=self.tr("books_wifi_mode"))
+            self.rb_usb.config(text=self.tr("books_usb_mode"))
+            self.btn_books_refresh.config(text=self.tr("books_refresh"))
+            self.books_search_lbl.config(text=self.tr("books_search"))
+            self.books_tree.heading("name", text=self.tr("books_col_name"))
+            self.books_tree.heading("ext", text=self.tr("books_col_ext"))
+            self.books_tree.heading("size", text=self.tr("books_col_size"))
+            self.btn_delete_book.config(text=self.tr("books_delete"))
+            self.btn_rescan_display.config(text=self.tr("books_rescan"))
+            self.up_box.config(text=self.tr("books_upload_box"))
+            self.btn_pick_books.config(text=self.tr("books_pick_btn"))
+            self.lbl_target_fmt.config(text=self.tr("books_target_fmt"))
+            self.cb_skip_native.config(text=self.tr("books_skip_native"))
+            conv_bin = kindle_books.find_calibre_converter()
+            self.calibre_status_lbl.config(text=self.tr("books_calibre_ok") if conv_bin else self.tr("books_calibre_missing"))
+            self.action_refresh_books()
+
     def action_refresh_books(self):
         mode = self.book_conn_mode.get()
         srv = self.ip_entry.get().strip() or DEFAULT_IP
-        self.books_status_badge.config(text="● Загрузка списка...", fg="#aaaaaa")
+        self.books_status_badge.config(text=self.tr("books_loading"), fg="#555555")
 
         def worker():
             try:
                 if mode == "wifi":
-                    books = kindle_books.list_kindle_books_ssh(srv)
-                    badge_text = "🟢 В сети (Wi-Fi)"
-                    badge_fg = "#89d185"
+                    books = kindle_books.list_kindle_books_ssh(srv, lang=self.lang)
+                    badge_text = self.tr("books_online")
+                    badge_fg = "#006400"
                 else:
                     drive = self.find_kindle_drive()
                     if not drive:
-                        raise RuntimeError("Kindle не подключен по USB!")
-                    books = kindle_books.list_kindle_books_usb(drive)
-                    badge_text = f"🔌 Подключен (USB {drive})"
-                    badge_fg = "#89d185"
+                        raise RuntimeError("Kindle not connected via USB!" if self.lang == "en" else "Kindle не подключен по USB!")
+                    books = kindle_books.list_kindle_books_usb(drive, lang=self.lang)
+                    badge_text = self.tr("books_usb_online", drive=drive)
+                    badge_fg = "#006400"
 
                 self.cached_books = books
                 total_bytes = sum(b["size_bytes"] for b in books)
-                summary_text = f"Книг: {len(books)} ({kindle_books.format_size(total_bytes)})"
+                summary_text = self.tr("books_count", count=len(books), size=kindle_books.format_size(total_bytes, lang=self.lang))
 
                 def update_ui():
                     self.books_status_badge.config(text=badge_text, fg=badge_fg)
                     self.books_count_lbl.config(text=summary_text)
                     self._filter_books_list()
-                    self.set_status(f"Загружен список книг: {len(books)} шт.")
+                    self.set_status(f"Kindle books: {len(books)}" if self.lang == "en" else f"Загружен список книг: {len(books)} шт.")
 
                 self.after(0, update_ui)
 
             except Exception as e:
-                def update_err():
-                    self.books_status_badge.config(text="🔴 Ошибка связи", fg="#f48771")
-                    self.set_status(f"Ошибка получения книг: {e}", fg="#f48771")
+                err_str = str(e)
+                def update_err(msg=err_str):
+                    self.books_status_badge.config(text=self.tr("books_offline"), fg="#c9302c")
+                    self.set_status(f"Error: {msg}" if self.lang == "en" else f"Ошибка связи: {msg}", fg="#f48771")
+                    self.book_log_lbl.config(text=f"⚠️ {msg}", fg="#c9302c")
                 self.after(0, update_err)
 
         threading.Thread(target=worker, daemon=True).start()
@@ -1705,14 +1843,15 @@ class KindleStudioApp(tk.Tk):
     def action_delete_book(self):
         selected = self.books_tree.selection()
         if not selected:
-            messagebox.showinfo("Инфо", "Выберите книгу из списка для удаления.")
+            messagebox.showinfo("Info" if self.lang == "en" else "Инфо", "Select a book from the list to delete." if self.lang == "en" else "Выберите книгу из списка для удаления.")
             return
 
         rel_path = selected[0]
         book = next((b for b in self.cached_books if b["rel_path"] == rel_path), None)
         book_name = book["name"] if book else rel_path
 
-        if not messagebox.askyesno("Подтверждение", f"Удалить книгу '{book_name}' с Kindle?"):
+        confirm_msg = self.tr("books_delete_confirm", name=book_name)
+        if not messagebox.askyesno("Confirm" if self.lang == "en" else "Подтверждение", confirm_msg):
             return
 
         mode = self.book_conn_mode.get()
@@ -1721,20 +1860,20 @@ class KindleStudioApp(tk.Tk):
         def worker():
             try:
                 if mode == "wifi":
-                    kindle_books.delete_book_wifi(rel_path, srv)
+                    kindle_books.delete_book_wifi(rel_path, server=srv, lang=self.lang)
                 else:
                     drive = self.find_kindle_drive()
                     if not drive:
-                        raise RuntimeError("Kindle не подключен по USB!")
+                        raise RuntimeError("Kindle not connected via USB!" if self.lang == "en" else "Kindle не подключен по USB!")
                     kindle_books.delete_book_usb(rel_path, drive)
 
                 def update_ok():
-                    messagebox.showinfo("Успех", f"Книга '{book_name}' удалена с Kindle.")
+                    messagebox.showinfo("Success" if self.lang == "en" else "Успех", self.tr("books_delete_ok", name=book_name))
                     self.action_refresh_books()
 
                 self.after(0, update_ok)
             except Exception as e:
-                self.after(0, lambda err=e: messagebox.showerror("Ошибка", f"Не удалось удалить книгу:\n{err}"))
+                self.after(0, lambda err=e: messagebox.showerror("Error" if self.lang == "en" else "Ошибка", str(err)))
 
         threading.Thread(target=worker, daemon=True).start()
 
@@ -1743,17 +1882,20 @@ class KindleStudioApp(tk.Tk):
         def worker():
             try:
                 kindle_books.trigger_kindle_rescan_ssh(srv)
-                self.after(0, lambda: self.set_status("Библиотека Kindle пересканирована ✓", fg="#89d185"))
+                self.after(0, lambda: self.set_status("Kindle display refreshed ✓" if self.lang == "en" else "Экран библиотеки Kindle пересканирован ✓", fg="#89d185"))
             except Exception as e:
-                self.after(0, lambda err=e: self.set_status(f"Ошибка пересканирования: {err}", fg="#f48771"))
+                self.after(0, lambda err=e: self.set_status(f"Error: {err}" if self.lang == "en" else f"Ошибка: {err}", fg="#f48771"))
         threading.Thread(target=worker, daemon=True).start()
 
     def action_upload_books(self):
+        title_str = "Choose book files to send to Kindle" if self.lang == "en" else "Выберите книги для отправки на Kindle"
+        file_desc = "E-Books" if self.lang == "en" else "Электронные книги"
+        all_desc = "All Files" if self.lang == "en" else "Все файлы"
         files = filedialog.askopenfilenames(
-            title="Выберите книги для отправки на Kindle",
+            title=title_str,
             filetypes=[
-                ("Электронные книги", "*.epub;*.fb2;*.mobi;*.azw;*.azw3;*.pdf;*.txt;*.docx;*.rtf;*.html;*.cbz;*.zip"),
-                ("Все файлы", "*.*")
+                (file_desc, "*.epub;*.fb2;*.mobi;*.azw;*.azw3;*.pdf;*.txt;*.docx;*.rtf;*.html;*.cbz;*.zip"),
+                (all_desc, "*.*")
             ]
         )
         if not files:
@@ -1766,7 +1908,7 @@ class KindleStudioApp(tk.Tk):
         skip_native = self.skip_native_var.get()
 
         if mode == "usb" and not drive:
-            messagebox.showerror("Ошибка", "Kindle не подключен по USB!")
+            messagebox.showerror("Error" if self.lang == "en" else "Ошибка", "Kindle not connected via USB!" if self.lang == "en" else "Kindle не подключен по USB!")
             return
 
         total_files = len(files)
@@ -1780,36 +1922,26 @@ class KindleStudioApp(tk.Tk):
 
                 self.after(0, lambda i=idx, f=fname: (
                     self.book_progress.config(value=i - 0.5),
-                    self.book_log_lbl.config(text=f"[{i}/{total_files}] Обработка '{f}'...", fg="#007acc")
+                    self.book_log_lbl.config(text=f"[{i}/{total_files}] Processing '{f}'..." if self.lang == "en" else f"[{i}/{total_files}] Обработка '{f}'...", fg="#005a9e")
                 ))
 
                 try:
-                    # Conversion check
                     need_convert = True
                     if skip_native and ext in kindle_books.KINDLE_NATIVE_EXTS:
                         need_convert = False
 
                     if need_convert:
                         def conv_progress(msg):
-                            self.after(0, lambda m=msg: self.book_log_lbl.config(text=m, fg="#e0e0e0"))
-                        upload_file = kindle_books.convert_book(filepath, target_format=target_fmt, progress_callback=conv_progress)
+                            self.after(0, lambda m=msg: self.book_log_lbl.config(text=m, fg="#333333"))
+                        upload_file = kindle_books.convert_book(filepath, target_format=target_fmt, progress_callback=conv_progress, lang=self.lang)
                     else:
                         upload_file = filepath
 
-                    # Dispatch to library folder as well
-                    lib_copy = os.path.join(kindle_books.LIBRARY_DIR, os.path.basename(upload_file))
-                    if upload_file != lib_copy and not os.path.exists(lib_copy):
-                        try:
-                            shutil.copy2(upload_file, lib_copy)
-                        except Exception:
-                            pass
-
-                    # Dispatch to Kindle
-                    def send_progress(msg):
-                        self.after(0, lambda m=msg: self.book_log_lbl.config(text=m, fg="#89d185"))
+                    def send_progress(msg, pct):
+                        self.after(0, lambda m=msg: self.book_log_lbl.config(text=m, fg="#006400"))
 
                     if mode == "wifi":
-                        kindle_books.send_book_wifi(upload_file, server=srv, progress_callback=send_progress)
+                        kindle_books.send_book_wifi(upload_file, server=srv, progress_callback=send_progress, lang=self.lang)
                     else:
                         kindle_books.send_book_usb(upload_file, drive_path=drive)
 
@@ -1817,51 +1949,19 @@ class KindleStudioApp(tk.Tk):
                     self.after(0, lambda i=idx: self.book_progress.config(value=i))
 
                 except Exception as e:
-                    self.after(0, lambda f=fname, err=e: self.book_log_lbl.config(text=f"Ошибка '{f}': {err}", fg="#f48771"))
+                    self.after(0, lambda f=fname, err=e: self.book_log_lbl.config(text=f"Error '{f}': {err}" if self.lang == "en" else f"Ошибка '{f}': {err}", fg="#c9302c"))
                     time.sleep(2)
 
             self.after(0, lambda: (
                 self.book_progress.config(value=total_files),
-                self.book_log_lbl.config(text=f"✓ Готово! Загружено {success_count} из {total_files} книг.", fg="#89d185"),
-                self.set_status(f"Книги успешно отправлены на Kindle ({success_count} шт.)"),
+                self.book_log_lbl.config(text=self.tr("books_sent_success", count=success_count), fg="#006400"),
+                self.set_status(f"Uploaded {success_count} books" if self.lang == "en" else f"Книги успешно отправлены ({success_count} шт.)"),
                 self.action_refresh_books()
             ))
 
         threading.Thread(target=worker, daemon=True).start()
 
-    def action_toggle_book_server(self):
-        srv = self.ip_entry.get().strip() or DEFAULT_IP
-        if not self.book_server or not self.book_server.is_running:
-            self.book_server = kindle_books.BookServerController(port=8080, kindle_ip=srv, auto_push=True)
-            self.book_server.start()
-            self.btn_toggle_server.config(text="⏹ Остановить сервер", bg="#d9534f")
-            self.server_status_badge.config(text="🟢 Сервер активен (8080)", fg="#89d185")
-            self.set_status(f"Веб-сервер книг запущен на {self.server_url_str}")
-        else:
-            self.book_server.stop()
-            self.btn_toggle_server.config(text="▶ Запустить сервер книг", bg="#28a745")
-            self.server_status_badge.config(text="⚪ Сервер выключен", fg="#aaaaaa")
-            self.set_status("Веб-сервер книг остановлен")
-
-    def action_copy_server_url(self):
-        self.clipboard_clear()
-        self.clipboard_append(self.server_url_str)
-        self.set_status(f"Ссылка {self.server_url_str} скопирована в буфер")
-
-    def action_open_server_browser(self):
-        import webbrowser
-        webbrowser.open(self.server_url_str)
-
-    def action_open_library_folder(self):
-        if os.path.exists(kindle_books.LIBRARY_DIR):
-            os.startfile(kindle_books.LIBRARY_DIR)
-
     def on_closing(self):
-        if self.book_server:
-            try:
-                self.book_server.stop()
-            except Exception:
-                pass
         self._stop_active_worker()
         self.destroy()
 
